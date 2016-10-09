@@ -6,7 +6,7 @@
 [![codecov](https://codecov.io/gh/mysticatea/eslint-plugin-eslint-comments/branch/master/graph/badge.svg)](https://codecov.io/gh/mysticatea/eslint-plugin-eslint-comments)
 [![Dependency Status](https://david-dm.org/mysticatea/eslint-plugin-eslint-comments.svg)](https://david-dm.org/mysticatea/eslint-plugin-eslint-comments)
 
-Additional ESLint rules for ESLint's directive comments (e.g. `//eslint-disable-line`).
+Additional ESLint rules for ESLint's directive-comments (e.g. `//eslint-disable-line`).
 
 ## :cd: Installation
 
@@ -49,7 +49,7 @@ Write in your ESLint configurations: http://eslint.org/docs/user-guide/configuri
 - [eslint-comments/no-duplicate-disable](docs/rules/no-duplicate-disable.md) disallows duplicate `eslint-disable` comments.
 - [eslint-comments/no-unlimited-disable](docs/rules/no-unlimited-disable.md) disallows `eslint-disable` comments without rule names.
 - [eslint-comments/no-unused-disable](docs/rules/no-unused-disable.md) disallows unused `eslint-disable` comments.
-- [eslint-comments/no-use](docs/rules/no-use.md) disallows ESLint directive comments.
+- [eslint-comments/no-use](docs/rules/no-use.md) disallows ESLint directive-comments.
 - [eslint-comments/no-useless-enable](docs/rules/no-useless-enable.md) disallows useless `eslint-enable` comments.
 
 ## :anchor: Semantic Versioning Policy
