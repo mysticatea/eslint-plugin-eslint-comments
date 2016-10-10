@@ -29,6 +29,7 @@
   "scripts": {
     "preversion": "run-s clean test build",
     "postversion": "git push && git push --tags",
+    "build": "node scripts/generate-index.js",
     "clean": "rimraf .nyc_output coverage index.js",
     "lint": "eslint lib scripts tests",
     "pretest": "npm run lint",
