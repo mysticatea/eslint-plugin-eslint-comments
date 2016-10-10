@@ -37,8 +37,8 @@ Write in your ESLint configurations: http://eslint.org/docs/user-guide/configuri
         "eslint-comments/no-duplicate-disable": "error",
         "eslint-comments/no-unlimited-disable": "error",
         "eslint-comments/no-unused-disable": "error",
+        "eslint-comments/no-unused-enable": "error",
         "eslint-comments/no-use": "error",
-        "eslint-comments/no-useless-enable": "error",
     }
 }
 ```
@@ -49,8 +49,8 @@ Write in your ESLint configurations: http://eslint.org/docs/user-guide/configuri
 - [eslint-comments/no-duplicate-disable](docs/rules/no-duplicate-disable.md) disallows duplicate `eslint-disable` comments.
 - [eslint-comments/no-unlimited-disable](docs/rules/no-unlimited-disable.md) disallows `eslint-disable` comments without rule names.
 - [eslint-comments/no-unused-disable](docs/rules/no-unused-disable.md) disallows unused `eslint-disable` comments.
+- [eslint-comments/no-unused-enable](docs/rules/no-unused-enable.md) disallows unused `eslint-enable` comments.
 - [eslint-comments/no-use](docs/rules/no-use.md) disallows ESLint directive-comments.
-- [eslint-comments/no-useless-enable](docs/rules/no-useless-enable.md) disallows useless `eslint-enable` comments.
 
 ## :anchor: Semantic Versioning Policy
 

@@ -5,7 +5,7 @@ This rule disallows a use of directive-comments.
 
 ## Rule Details
 
-Examples of :thumbsdown: **incorrect** code for this rule:
+Examples of :-1: **incorrect** code for this rule:
 
 ```js
 /*eslint eslint-comments/no-use: error */

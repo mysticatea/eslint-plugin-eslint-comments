@@ -33,7 +33,7 @@
     "lint": "eslint lib scripts tests",
     "pretest": "npm run lint",
     "test": "nyc mocha \"tests/lib/**/*.js\" --reporter progress",
-    "watch": "chokidar lib test --initial --command \"npm test && nyc report --reporter lcov\"",
+    "watch": "chokidar lib tests --initial --command \"npm test && nyc report --reporter lcov\"",
     "coverage": "nyc report --reporter lcov && opener coverage/lcov-report/index.html",
     "codecov": "nyc report --reporter lcovonly && codecov"
   },
