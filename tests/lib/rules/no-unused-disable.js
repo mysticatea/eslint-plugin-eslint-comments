@@ -56,6 +56,17 @@ var a = b
 /*eslint-disable no-undef,no-unused-vars*/
 var a = b
 /*eslint-enable no-undef*/`,
+
+        `
+/*eslint no-shadow:error */
+var foo = 1
+function bar() {
+    var foo = 2  //eslint-disable-line no-shadow
+}
+function baz() {
+    var foo = 3  //eslint-disable-line no-shadow
+}
+`,
     ],
     invalid: [
         {
