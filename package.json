@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-eslint-comments",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Additional ESLint rules for directive comments of ESLint.",
   "engines": {
     "node": "^4.0.0 || >=6.0.0"
