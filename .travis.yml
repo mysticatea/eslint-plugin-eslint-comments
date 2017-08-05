@@ -8,6 +8,7 @@ node_js:
 
 env:
   - ESLINT_VERSION=3
+  - ESLINT_VERSION=4.3
   - ESLINT_VERSION=4
 
 cache:

@@ -313,5 +313,18 @@ var a = b
                 },
             ],
         },
+        {
+            code: "/* eslint new-parens:error*/ /*eslint-disable new-parens*/",
+            errors: [
+                {
+                    message: "'new-parens' rule is disabled but never reported.",
+                    line: 1,
+                    column: 47,
+                    endLine: 1,
+                    endColumn: 57,
+                },
+            ],
+        },
+
     ],
 })
