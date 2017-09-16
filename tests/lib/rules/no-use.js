@@ -32,39 +32,39 @@ tester.run("no-use", rule, {
         "/* just eslint in a normal comment */",
         {
             code: "/* eslint */",
-            options: [{allow: ["eslint"]}],
+            options: [{ allow: ["eslint"] }],
         },
         {
             code: "/* eslint-env */",
-            options: [{allow: ["eslint-env"]}],
+            options: [{ allow: ["eslint-env"] }],
         },
         {
             code: "/* eslint-enable */",
-            options: [{allow: ["eslint-enable"]}],
+            options: [{ allow: ["eslint-enable"] }],
         },
         {
             code: "/* eslint-disable */",
-            options: [{allow: ["eslint-disable"]}],
+            options: [{ allow: ["eslint-disable"] }],
         },
         {
             code: "// eslint-disable-line",
-            options: [{allow: ["eslint-disable-line"]}],
+            options: [{ allow: ["eslint-disable-line"] }],
         },
         {
             code: "// eslint-disable-next-line",
-            options: [{allow: ["eslint-disable-next-line"]}],
+            options: [{ allow: ["eslint-disable-next-line"] }],
         },
         {
             code: "/* exported */",
-            options: [{allow: ["exported"]}],
+            options: [{ allow: ["exported"] }],
         },
         {
             code: "/* global */",
-            options: [{allow: ["global"]}],
+            options: [{ allow: ["global"] }],
         },
         {
             code: "/* globals */",
-            options: [{allow: ["globals"]}],
+            options: [{ allow: ["globals"] }],
         },
     ],
     invalid: [
