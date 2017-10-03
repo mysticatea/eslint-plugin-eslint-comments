@@ -20,7 +20,7 @@
     "codecov": "^2.3.0",
     "eslint": "^4.7.0",
     "eslint-config-mysticatea": "^12.0.0",
-    "mocha": "^3.5.3",
+    "mocha": "^4.0.0",
     "npm-run-all": "^4.1.1",
     "nyc": "^11.2.1",
     "opener": "^1.4.3",
