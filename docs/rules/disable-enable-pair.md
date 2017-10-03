@@ -41,3 +41,32 @@ var foo = bar()
 var foo = bar()
 /*eslint-enable*/
 ```
+
+## Options
+
+The `allowWholeFile` option lets you allow disabling rules for the entire file while still catching "open" `eslint-disable` directives in the middle of a file.
+
+```json
+{
+    "eslint-comments/disable-enable-pair": ["error", {"allowWholeFile": true}]
+}
+```
+
+Examples of :-1: **incorrect** code for this rule:
+
+```js
+/*eslint-disable no-undef */
+var foo = bar()
+/*eslint-disable no-unused-vars */
+var fizz = buzz()
+```
+
+Examples of :+1: **correct** code for this rule:
+
+```js
+/*eslint-disable no-undef */
+var foo = bar()
+/*eslint-disable no-unused-vars */
+var fizz = buzz()
+/*eslint-enable no-unused-vars */
+```
