@@ -47,6 +47,38 @@ function foo() {
 /*eslint-enable*/
 /*eslint-enable*/
 `,
+        {
+            code: `
+console.log('This code does not even have any special comments')
+`,
+            options: [{ allowWholeFile: true }],
+        },
+        {
+            code: `
+/*eslint-disable*/
+`,
+            options: [{ allowWholeFile: true }],
+        },
+        {
+            code: `
+/*eslint-disable no-undef*/
+/*eslint-disable no-unused-vars*/
+/*eslint-enable*/
+`,
+            options: [{ allowWholeFile: true }],
+        },
+        {
+            code: `
+
+/**
+ * @file This test case makes sure comments and blank lines
+ * before "whole-file" eslint-disable are allowed.
+ */
+
+/*eslint-disable*/
+`,
+            options: [{ allowWholeFile: true }],
+        },
     ],
     invalid: [
         {
@@ -105,6 +137,56 @@ function foo() {
                     column: 18,
                     endLine: 2,
                     endColumn: 26,
+                },
+            ],
+        },
+        {
+            code: `
+/*eslint-disable no-undef*/
+console.log();
+/*eslint-disable no-unused-vars*/
+`,
+            options: [{ allowWholeFile: true }],
+            errors: [
+                {
+                    message: "Requires 'eslint-enable' directive for 'no-unused-vars'.",
+                    line: 4,
+                    column: 18,
+                    endLine: 4,
+                    endColumn: 32,
+                },
+            ],
+        },
+        {
+            code: `
+console.log();
+/*eslint-disable no-unused-vars*/
+`,
+            options: [{ allowWholeFile: true }],
+            errors: [
+                {
+                    message: "Requires 'eslint-enable' directive for 'no-unused-vars'.",
+                    line: 3,
+                    column: 18,
+                    endLine: 3,
+                    endColumn: 32,
+                },
+            ],
+        },
+        {
+            code: `
+{
+/*eslint-disable no-unused-vars*/
+}
+`,
+            options: [{ allowWholeFile: true }],
+            errors: [
+                {
+                    message: "Requires 'eslint-enable' directive for 'no-unused-vars'.",
+                    line: 3,
+                    column: 18,
+                    endLine: 3,
+                    endColumn: 32,
                 },
             ],
         },
