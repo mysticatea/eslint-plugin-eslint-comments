@@ -128,7 +128,7 @@ console.log('This code does not even have any special comments')
             code: `
 /*eslint-disable no-undef*/
 /*eslint-disable no-unused-vars*/
-/*eslint-enable*/
+/*eslint-enable no-unused-vars*/
 `,
             errors: [
                 {
