@@ -12,6 +12,8 @@
 const fs = require("fs")
 const path = require("path")
 const generateIndex = require("./generate-index")
+const updateDocHeaders = require("./update-doc-headers")
+const updateReadme = require("./update-readme")
 
 //------------------------------------------------------------------------------
 // Main
@@ -35,3 +37,5 @@ const rules =
         })
 
 generateIndex(rules)
+updateDocHeaders(rules)
+updateReadme(rules)

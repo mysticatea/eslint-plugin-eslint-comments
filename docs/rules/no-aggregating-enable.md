@@ -1,4 +1,6 @@
-# disallows `eslint-enable` comments for multiple `eslint-disable` comments (no-aggregating-enable)
+# disallows `eslint-enable` comments for multiple `eslint-disable` comments (eslint-comments/no-aggregating-enable)
+
+- 🌟 The `"extends": "plugin:eslint-comments/recommended"` property in a configuration file enables this rule.
 
 `eslint-enable` directive-comments can enable rules which are disabled by different `eslint-disable` directive-comments.
 It can enable a rule unintentionally.

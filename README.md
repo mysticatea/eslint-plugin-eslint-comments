@@ -8,7 +8,7 @@
 
 Additional ESLint rules for ESLint's directive-comments (e.g. `//eslint-disable-line`).
 
-## :cd: Installation
+## 💿 Installation
 
 ```
 npm install --save-dev eslint eslint-plugin-eslint-comments
@@ -17,9 +17,9 @@ npm install --save-dev eslint eslint-plugin-eslint-comments
 ### Requirements
 
 - Node.js `^4.0.0`, `^6.0.0`, or newer.
-- ESLint `^3.1.0`, or newer.
+- ESLint `^4.7.0`, or newer.
 
-## :book: Usage
+## 📖 Usage
 
 Write in your ESLint configurations: http://eslint.org/docs/user-guide/configuring#using-the-configuration-from-a-plugin
 
@@ -29,55 +29,63 @@ Write in your ESLint configurations: http://eslint.org/docs/user-guide/configuri
 
 ```json
 {
+    "extends": [
+        "eslint:recommended",
+        "plugin:eslint-comments/recommended"
+    ],
+}
+```
+
+Or you can specify for each rule:
+
+```json
+{
     "plugins": [
         "eslint-comments"
     ],
     "rules": {
-        "eslint-comments/disable-enable-pair": "error",
-        "eslint-comments/no-duplicate-disable": "error",
-        "eslint-comments/no-unlimited-disable": "error",
         "eslint-comments/no-unused-disable": "error",
         "eslint-comments/no-unused-enable": "error",
-        "eslint-comments/no-use": "error",
+        // ...
     }
 }
 ```
 
-### Rules
+## Rules
 
-- [eslint-comments/disable-enable-pair](docs/rules/disable-enable-pair.md) requires a `eslint-enable` comment for every `eslint-disable` comment.
-- [eslint-comments/no-duplicate-disable](docs/rules/no-duplicate-disable.md) disallows duplicate `eslint-disable` comments.
-- [eslint-comments/no-unlimited-disable](docs/rules/no-unlimited-disable.md) disallows `eslint-disable` comments without rule names.
-- [eslint-comments/no-unused-disable](docs/rules/no-unused-disable.md) disallows unused `eslint-disable` comments.
-- [eslint-comments/no-unused-enable](docs/rules/no-unused-enable.md) disallows unused `eslint-enable` comments.
-- [eslint-comments/no-use](docs/rules/no-use.md) disallows ESLint directive-comments.
+- 🌟 mark: the rule is enabled by `eslint-comments/recommended` preset.
+- ✒️ mark: the rule is fixable by `eslint --fix` command.
 
-## :anchor: Semantic Versioning Policy
+<!--RULES_TABLE_START-->
+### Best Practices
+
+|    | Rule ID | Description |
+|:---|:--------|:------------|
+| 🌟 | [eslint-comments/disable-enable-pair](./docs/rules/eslint-comments/disable-enable-pair.md) | requires a `eslint-enable` comment for every `eslint-disable` comment |
+| 🌟 | [eslint-comments/no-aggregating-enable](./docs/rules/eslint-comments/no-aggregating-enable.md) | disallows `eslint-enable` comments for multiple `eslint-disable` comments |
+| 🌟 | [eslint-comments/no-duplicate-disable](./docs/rules/eslint-comments/no-duplicate-disable.md) | disallows duplicate `eslint-disable` comments |
+| 🌟 | [eslint-comments/no-unlimited-disable](./docs/rules/eslint-comments/no-unlimited-disable.md) | disallows `eslint-disable` comments without rule names |
+| 🌟 | [eslint-comments/no-unused-disable](./docs/rules/eslint-comments/no-unused-disable.md) | disallows unused `eslint-disable` comments |
+| 🌟 | [eslint-comments/no-unused-enable](./docs/rules/eslint-comments/no-unused-enable.md) | disallows unused `eslint-enable` comments |
+
+### Stylistic Issues
+
+|    | Rule ID | Description |
+|:---|:--------|:------------|
+|  | [eslint-comments/no-restricted-disable](./docs/rules/eslint-comments/no-restricted-disable.md) | disallows `eslint-disable` comments about specific rules |
+|  | [eslint-comments/no-use](./docs/rules/eslint-comments/no-use.md) | disallows ESLint directive-comments |
+
+<!--RULES_TABLE_END-->
+
+## 🚥 Semantic Versioning Policy
 
 `eslint-plugin-eslint-comments` follows [semantic versioning](http://semver.org/) and [ESLint's Semantic Versioning Policy](https://github.com/eslint/eslint#semantic-versioning-policy).
 
-- Patch release (intended to not break your lint build)
-    - A bug fix in a rule that results in `eslint-plugin-eslint-comments` reporting fewer errors.
-    - Improvements to documentation.
-    - Non-user-facing changes such as refactoring code, adding, deleting, or modifying tests, and increasing test coverage.
-    - Re-releasing after a failed release (i.e., publishing a release that doesn't work for anyone).
-- Minor release (might break your lint build)
-    - A bug fix in a rule that results in `eslint-plugin-eslint-comments` reporting more errors.
-    - A new rule is created.
-    - A new option to an existing rule is created.
-    - An existing rule is deprecated.
-- Major release (likely to break your lint build)
-    - A support for old Node version is dropped.
-    - A support for old ESLint version is dropped.
-    - An existing rule is removed.
-    - An existing option of a rule is removed.
-    - An existing config is updated.
-
-## :newspaper: Changelog
+## 📰 Changelog
 
 - [GitHub Releases](https://github.com/mysticatea/eslint-plugin-eslint-comments/releases)
 
-## :muscle: Contributing
+## 🍻 Contributing
 
 Welcome contributing!
 

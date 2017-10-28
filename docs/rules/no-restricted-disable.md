@@ -1,4 +1,4 @@
-# disallows `eslint-disable` comments about specific rules (no-restricted-disable)
+# disallows `eslint-disable` comments about specific rules (eslint-comments/no-restricted-disable)
 
 This rule warns `eslint-disable` directive-comments if the comment disable specific rules.
 

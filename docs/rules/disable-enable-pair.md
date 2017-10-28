@@ -1,5 +1,7 @@
 # requires a `eslint-enable` comment for every `eslint-disable` comment (eslint-comments/disable-enable-pair)
 
+- 🌟 The `"extends": "plugin:eslint-comments/recommended"` property in a configuration file enables this rule.
+
 `eslint-disable` directive-comments disable ESLint rules in all lines preceded by the comment.
 If you forget `eslint-enable` directive-comment, you may overlook ESLint warnings unintentionally.
 

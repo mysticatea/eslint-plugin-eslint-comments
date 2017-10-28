@@ -1,5 +1,7 @@
 # disallows duplicate `eslint-disable` comments (eslint-comments/no-duplicate-disable)
 
+- 🌟 The `"extends": "plugin:eslint-comments/recommended"` property in a configuration file enables this rule.
+
 Duplicate of `eslint-disable` directive-comments implies that there is a mix of wide-range directive-comments and narrow-range directive-comments.
 The mix may cause to overlook ESLint warnings in future.
 

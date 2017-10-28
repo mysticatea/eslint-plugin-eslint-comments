@@ -1,5 +1,7 @@
 # disallows unused `eslint-enable` comments (eslint-comments/no-unused-enable)
 
+- 🌟 The `"extends": "plugin:eslint-comments/recommended"` property in a configuration file enables this rule.
+
 This rule warns `eslint-enable` directive-comments which have no effect.
 
 ## Rule Details
