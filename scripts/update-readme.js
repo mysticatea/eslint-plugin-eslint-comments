@@ -27,7 +27,7 @@ const PLACE_HOLDER = /<!--RULES_TABLE_START-->[\s\S]*<!--RULES_TABLE_END-->/
  */
 function toTableRow(rule) {
     const mark = `${rule.recommended ? "🌟" : ""}${rule.fixable ? "✒️" : ""}`
-    const link = `[${rule.id}](./docs/rules/${rule.id}.md)`
+    const link = `[${rule.id}](./docs/rules/${rule.name}.md)`
     const description = rule.description || "(no description)"
     return `| ${mark} | ${link} | ${description} |\n`
 }

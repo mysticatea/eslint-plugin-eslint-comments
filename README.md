@@ -61,19 +61,19 @@ Or you can specify for each rule:
 
 |    | Rule ID | Description |
 |:---|:--------|:------------|
-| 🌟 | [eslint-comments/disable-enable-pair](./docs/rules/eslint-comments/disable-enable-pair.md) | requires a `eslint-enable` comment for every `eslint-disable` comment |
-| 🌟 | [eslint-comments/no-aggregating-enable](./docs/rules/eslint-comments/no-aggregating-enable.md) | disallows `eslint-enable` comments for multiple `eslint-disable` comments |
-| 🌟 | [eslint-comments/no-duplicate-disable](./docs/rules/eslint-comments/no-duplicate-disable.md) | disallows duplicate `eslint-disable` comments |
-| 🌟 | [eslint-comments/no-unlimited-disable](./docs/rules/eslint-comments/no-unlimited-disable.md) | disallows `eslint-disable` comments without rule names |
-| 🌟 | [eslint-comments/no-unused-disable](./docs/rules/eslint-comments/no-unused-disable.md) | disallows unused `eslint-disable` comments |
-| 🌟 | [eslint-comments/no-unused-enable](./docs/rules/eslint-comments/no-unused-enable.md) | disallows unused `eslint-enable` comments |
+| 🌟 | [eslint-comments/disable-enable-pair](./docs/rules/disable-enable-pair.md) | requires a `eslint-enable` comment for every `eslint-disable` comment |
+| 🌟 | [eslint-comments/no-aggregating-enable](./docs/rules/no-aggregating-enable.md) | disallows `eslint-enable` comments for multiple `eslint-disable` comments |
+| 🌟 | [eslint-comments/no-duplicate-disable](./docs/rules/no-duplicate-disable.md) | disallows duplicate `eslint-disable` comments |
+| 🌟 | [eslint-comments/no-unlimited-disable](./docs/rules/no-unlimited-disable.md) | disallows `eslint-disable` comments without rule names |
+| 🌟 | [eslint-comments/no-unused-disable](./docs/rules/no-unused-disable.md) | disallows unused `eslint-disable` comments |
+| 🌟 | [eslint-comments/no-unused-enable](./docs/rules/no-unused-enable.md) | disallows unused `eslint-enable` comments |
 
 ### Stylistic Issues
 
 |    | Rule ID | Description |
 |:---|:--------|:------------|
-|  | [eslint-comments/no-restricted-disable](./docs/rules/eslint-comments/no-restricted-disable.md) | disallows `eslint-disable` comments about specific rules |
-|  | [eslint-comments/no-use](./docs/rules/eslint-comments/no-use.md) | disallows ESLint directive-comments |
+|  | [eslint-comments/no-restricted-disable](./docs/rules/no-restricted-disable.md) | disallows `eslint-disable` comments about specific rules |
+|  | [eslint-comments/no-use](./docs/rules/no-use.md) | disallows ESLint directive-comments |
 
 <!--RULES_TABLE_END-->
 
