@@ -8,9 +8,7 @@ node_js:
 
 env:
   - ESLINT_VERSION=4
-  - ESLINT_VERSION=4.3
-  - ESLINT_VERSION=3
-  - ESLINT_VERSION=3.1
+  - ESLINT_VERSION=4.7
 
 before_script:
   - npm i --no-save eslint@$ESLINT_VERSION; true
