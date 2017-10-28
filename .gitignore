@@ -1,7 +1,6 @@
 /.nyc_output
 /.vscode
 /coverage
-/index.js
 /node_modules
 /npm-debug.log
 /test.js

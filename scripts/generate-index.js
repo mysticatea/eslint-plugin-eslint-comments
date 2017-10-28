@@ -13,10 +13,22 @@ const fs = require("fs")
 const path = require("path")
 
 //------------------------------------------------------------------------------
-// Main
+// Helpers
 //------------------------------------------------------------------------------
 
-fs.writeFileSync(path.resolve(__dirname, "../index.js"), `/**
+const INDEX_FILE_PATH = path.resolve(__dirname, "../index.js")
+
+//------------------------------------------------------------------------------
+// Exports
+//------------------------------------------------------------------------------
+
+/**
+ * Generate `index.js` file.
+ * @param {{id:string,name:string,category:string,description:string,recommended:boolean,fixable:boolean,deprecated:boolean,replacedBy:string[]}[]} rules The rules to generate index.js.
+ * @returns {void}
+ */
+module.exports = (rules) => {
+    fs.writeFileSync(INDEX_FILE_PATH, `/**
  * @author Toru Nagashima
  * @copyright 2016 Toru Nagashima. All rights reserved.
  * See LICENSE file in root directory for full license.
@@ -24,13 +36,17 @@ fs.writeFileSync(path.resolve(__dirname, "../index.js"), `/**
 "use strict"
 
 module.exports = {
+    configs: {
+        recommended: {
+            plugins: ["eslint-comments"],
+            rules: {
+${rules.map(rule => `                "${rule.id}": "${rule.recommended ? "error" : "off"}",`).join("\n")}
+            },
+        },
+    },
     rules: {
-${
-    fs.readdirSync(path.resolve(__dirname, "../lib/rules"))
-        .map(fileName => path.basename(fileName, ".js"))
-        .map(ruleId => `        "${ruleId}": require("./lib/rules/${ruleId}"),`)
-        .join("\n")
-}
+${rules.map(rule => `        "${rule.name}": require("./lib/rules/${rule.name}"),`).join("\n")}
     },
 }
 `)
+}
