@@ -94,6 +94,8 @@ Please use GitHub's Issues/PRs.
 ### Development Tools
 
 - `npm test` runs tests and measures coverage.
+- `npm run build` updates `README.md`, `index.js`, and the header of all rule's documents.
+- `npm run clean` removes the coverage of the last `npm test` command.
+- `npm run coverage` shows the coverage of the last `npm test` command.
+- `npm run lint` runs ESLint for this codebase.
 - `npm run watch` runs tests and measures coverage when source code are changed.
-- `npm run coverage` shows the coverage result of `npm test` command.
-- `npm run clean` removes the coverage result of `npm test` command.
