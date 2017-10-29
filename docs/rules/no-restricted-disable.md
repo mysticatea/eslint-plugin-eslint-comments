@@ -4,7 +4,7 @@ This rule warns `eslint-disable` directive-comments if the comment disable speci
 
 ## Rule Details
 
-:-1: Examples of **incorrect** code for `["no-undef", "no-unused-vars"]`:
+:-1: Examples of **incorrect** code for this rule:
 
 ```js
 /*eslint no-restricted-disable: ["error", "no-undef", "no-unused-vars"]*/
@@ -43,7 +43,7 @@ f() //eslint-disable-line another-rule
 
 This rule takes a list of strings, where each string is a glob pattern. For example:
 
-```json
+```js
 {
     "no-restricted-disable": [
         "error",
@@ -54,7 +54,7 @@ This rule takes a list of strings, where each string is a glob pattern. For exam
 }
 ```
 
-```json
+```js
 {
     "no-restricted-disable": [
         "error",
