@@ -79,6 +79,13 @@ console.log('This code does not even have any special comments')
 `,
             options: [{ allowWholeFile: true }],
         },
+        {
+            code: `
+/*eslint-disable no-unused-var, no-undef */
+var foo = 1
+`,
+            options: [{ allowWholeFile: true }],
+        },
     ],
     invalid: [
         {
