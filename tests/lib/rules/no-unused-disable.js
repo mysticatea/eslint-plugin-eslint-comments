@@ -143,10 +143,13 @@ function baz() {
     })
 
     describe("invalid", () => {
-        for (const { code, errors, reportUnusedDisableDirectives } of [
+        for (const testCase of [
             {
+                title: "Generic same line",
                 code: `/*eslint no-undef:off*/
 var a = b //eslint-disable-line`,
+                output: `/*eslint no-undef:off*/
+var a = b `,
                 errors: [
                     {
                         message:
@@ -159,8 +162,11 @@ var a = b //eslint-disable-line`,
                 ],
             },
             {
+                title: "Specific same line",
                 code: `/*eslint no-undef:off*/
 var a = b //eslint-disable-line no-undef`,
+                output: `/*eslint no-undef:off*/
+var a = b `,
                 errors: [
                     {
                         message:
@@ -173,6 +179,7 @@ var a = b //eslint-disable-line no-undef`,
                 ],
             },
             {
+                title: "Multiple in a same line",
                 code: `/*eslint no-undef:off, no-unused-vars:off*/
 var a = b //eslint-disable-line no-undef,no-unused-vars`,
                 errors: [
@@ -195,8 +202,12 @@ var a = b //eslint-disable-line no-undef,no-unused-vars`,
                 ],
             },
             {
+                title: "Generic next line",
                 code: `/*eslint no-undef:off*/
 //eslint-disable-next-line
+var a = b`,
+                output: `/*eslint no-undef:off*/
+
 var a = b`,
                 errors: [
                     {
@@ -210,8 +221,12 @@ var a = b`,
                 ],
             },
             {
+                title: "Specific next line",
                 code: `/*eslint no-undef:off*/
 //eslint-disable-next-line no-undef
+var a = b`,
+                output: `/*eslint no-undef:off*/
+
 var a = b`,
                 errors: [
                     {
@@ -225,6 +240,7 @@ var a = b`,
                 ],
             },
             {
+                title: "Multiple next line",
                 code: `/*eslint no-undef:off, no-unused-vars:off*/
 //eslint-disable-next-line no-undef,no-unused-vars
 var a = b`,
@@ -248,8 +264,12 @@ var a = b`,
                 ],
             },
             {
+                title: "Generic block",
                 code: `/*eslint no-undef:off*/
 /*eslint-disable*/
+var a = b`,
+                output: `/*eslint no-undef:off*/
+
 var a = b`,
                 errors: [
                     {
@@ -263,8 +283,29 @@ var a = b`,
                 ],
             },
             {
+                title: "Replaces multi-line block comments with a newline",
+                code: `foo/* eslint-disable
+*/ bar`,
+                output: `foo
+ bar`,
+                errors: [
+                    {
+                        message:
+                            "ESLint rules are disabled but never reported.",
+                        line: 1,
+                        column: 4,
+                        endLine: 2,
+                        endColumn: 3,
+                    },
+                ],
+            },
+            {
+                title: "Specific block",
                 code: `/*eslint no-undef:off*/
 /*eslint-disable no-undef*/
+var a = b`,
+                output: `/*eslint no-undef:off*/
+
 var a = b`,
                 errors: [
                     {
@@ -278,6 +319,7 @@ var a = b`,
                 ],
             },
             {
+                title: "Multiple block",
                 code: `/*eslint no-undef:off, no-unused-vars:off*/
 /*eslint-disable no-undef,no-unused-vars*/
 var a = b`,
@@ -301,8 +343,13 @@ var a = b`,
                 ],
             },
             {
+                title: "Generic block with enable after",
                 code: `/*eslint no-undef:off*/
 /*eslint-disable*/
+var a = b
+/*eslint-enable*/`,
+                output: `/*eslint no-undef:off*/
+
 var a = b
 /*eslint-enable*/`,
                 errors: [
@@ -317,8 +364,13 @@ var a = b
                 ],
             },
             {
+                title: "Specific block with enable after",
                 code: `/*eslint no-undef:off*/
 /*eslint-disable no-undef*/
+var a = b
+/*eslint-enable*/`,
+                output: `/*eslint no-undef:off*/
+
 var a = b
 /*eslint-enable*/`,
                 errors: [
@@ -333,6 +385,7 @@ var a = b
                 ],
             },
             {
+                title: "Multiple block with enable after",
                 code: `/*eslint no-undef:off, no-unused-vars:off*/
 /*eslint-disable no-undef,no-unused-vars*/
 var a = b
@@ -357,8 +410,13 @@ var a = b
                 ],
             },
             {
+                title: "Generic block disable with no error inside",
                 code: `/*eslint no-undef:error*/
 /*eslint-disable*/
+/*eslint-enable*/
+var a = b//eslint-disable-line no-undef`,
+                output: `/*eslint no-undef:error*/
+
 /*eslint-enable*/
 var a = b//eslint-disable-line no-undef`,
                 errors: [
@@ -373,8 +431,13 @@ var a = b//eslint-disable-line no-undef`,
                 ],
             },
             {
+                title: "Specific block disable with no error inside",
                 code: `/*eslint no-undef:error*/
 /*eslint-disable no-undef*/
+/*eslint-enable no-undef*/
+var a = b//eslint-disable-line no-undef`,
+                output: `/*eslint no-undef:error*/
+
 /*eslint-enable no-undef*/
 var a = b//eslint-disable-line no-undef`,
                 errors: [
@@ -389,6 +452,7 @@ var a = b//eslint-disable-line no-undef`,
                 ],
             },
             {
+                title: "Multiple specific block disable with no error inside",
                 code: `/*eslint no-undef:error, no-unused-vars:error*/
 /*eslint-disable no-undef,no-unused-vars*/
 /*eslint-enable no-undef*/
@@ -405,6 +469,8 @@ var a = b//eslint-disable-line no-undef`,
                 ],
             },
             {
+                title:
+                    "Multiple specific block disable with only one error inside",
                 code: `/*eslint no-undef:error, no-unused-vars:error*/
 /*eslint-disable
     no-undef,
@@ -424,8 +490,10 @@ var a = b
                 ],
             },
             {
+                title: "Specific block disable at end of input",
                 code:
                     "/* eslint new-parens:error*/ /*eslint-disable new-parens*/",
+                output: "/* eslint new-parens:error*/ ",
                 errors: [
                     {
                         message:
@@ -438,8 +506,11 @@ var a = b
                 ],
             },
             {
+                title: "Generic same line with rule off",
                 code: `/*eslint no-undef:off*/
 var a = b //eslint-disable-line`,
+                output: `/*eslint no-undef:off*/
+var a = b `,
                 errors: [
                     {
                         message:
@@ -457,8 +528,11 @@ var a = b //eslint-disable-line`,
                 reportUnusedDisableDirectives: true,
             },
             {
+                title: "Specific same line with rule off",
                 code: `/*eslint no-undef:off*/
 var a = b //eslint-disable-line no-undef`,
+                output: `/*eslint no-undef:off*/
+var a = b `,
                 errors: [
                     {
                         message:
@@ -476,8 +550,8 @@ var a = b //eslint-disable-line no-undef`,
                 reportUnusedDisableDirectives: true,
             },
 
-            // Don't crash even if the source code has a parse error.
             {
+                title: "Don't crash even if the source code has a parse error",
                 code:
                     "/*eslint no-undef:error*/\nvar a = b c //eslint-disable-line no-undef",
                 errors: [
@@ -487,24 +561,50 @@ var a = b //eslint-disable-line no-undef`,
                 ],
             },
         ]) {
-            it(code, () =>
-                runESLint(code, reportUnusedDisableDirectives).then(
-                    actualMessages => {
-                        assert.strictEqual(actualMessages.length, errors.length)
-                        for (let i = 0; i < errors.length; ++i) {
-                            const actual = actualMessages[i]
-                            const expected = errors[i]
+            it(testCase.title || testCase.code, () =>
+                runESLint(
+                    testCase.code,
+                    testCase.reportUnusedDisableDirectives
+                ).then(actualMessages => {
+                    assert.strictEqual(
+                        actualMessages.length,
+                        testCase.errors.length
+                    )
 
-                            for (const key of Object.keys(expected)) {
-                                assert.strictEqual(
-                                    actual[key],
-                                    expected[key],
-                                    `'${key}' is not expected.`
-                                )
-                            }
+                    let actualOutput = testCase.code
+
+                    for (let i = 0; i < testCase.errors.length; ++i) {
+                        const actual = actualMessages[i]
+                        const expected = testCase.errors[i]
+
+                        // We need to duplicate the simple logic in ESLint's
+                        // source-code-fixer.js to apply the fix. If we run
+                        // ESLint with --fix-dry-run, it won't report any
+                        // errors since it would have fixed them.
+                        if (actual.fix) {
+                            actualOutput =
+                                actualOutput.slice(0, actual.fix.range[0]) +
+                                actual.fix.text +
+                                actualOutput.slice(actual.fix.range[1])
+                        }
+
+                        for (const key of Object.keys(expected)) {
+                            assert.strictEqual(
+                                actual[key],
+                                expected[key],
+                                `'${key}' is not expected.`
+                            )
                         }
                     }
-                )
+
+                    if (testCase.output) {
+                        assert.strictEqual(
+                            actualOutput,
+                            testCase.output,
+                            "output is not expected"
+                        )
+                    }
+                })
             )
         }
     })
