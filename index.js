@@ -11,7 +11,7 @@ module.exports = {
                 "eslint-comments/no-duplicate-disable": "error",
                 "eslint-comments/no-restricted-disable": "off",
                 "eslint-comments/no-unlimited-disable": "error",
-                "eslint-comments/no-unused-disable": "error",
+                "eslint-comments/no-unused-disable": "off",
                 "eslint-comments/no-unused-enable": "error",
                 "eslint-comments/no-use": "off",
             },

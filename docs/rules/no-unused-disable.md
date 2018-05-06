@@ -1,7 +1,5 @@
 # disallows unused `eslint-disable` comments (eslint-comments/no-unused-disable)
 
-- 🌟 The `"extends": "plugin:eslint-comments/recommended"` property in a configuration file enables this rule.
-
 Since refactoring or a bug fix of upstream, an `eslint-disable` directive-comment may become unnecessary.
 In that case, you should remove the garbage as soon as possible since the garbage may cause to overlook ESLint warnings in future.
 

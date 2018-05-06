@@ -65,7 +65,7 @@ Or you can specify for each rule:
 | 🌟 | [eslint-comments/no-aggregating-enable](./docs/rules/no-aggregating-enable.md) | disallows `eslint-enable` comments for multiple `eslint-disable` comments |
 | 🌟 | [eslint-comments/no-duplicate-disable](./docs/rules/no-duplicate-disable.md) | disallows duplicate `eslint-disable` comments |
 | 🌟 | [eslint-comments/no-unlimited-disable](./docs/rules/no-unlimited-disable.md) | disallows `eslint-disable` comments without rule names |
-| 🌟 | [eslint-comments/no-unused-disable](./docs/rules/no-unused-disable.md) | disallows unused `eslint-disable` comments |
+|  | [eslint-comments/no-unused-disable](./docs/rules/no-unused-disable.md) | disallows unused `eslint-disable` comments |
 | 🌟 | [eslint-comments/no-unused-enable](./docs/rules/no-unused-enable.md) | disallows unused `eslint-enable` comments |
 
 ### Stylistic Issues
