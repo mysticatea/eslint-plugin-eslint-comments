@@ -2,19 +2,18 @@ sudo: false
 
 language: node_js
 node_js:
-  - "4"
   - "6"
   - "8"
+  - "10"
 
 env:
-  - ESLINT_VERSION=4
-  - ESLINT_VERSION=4.7
+  - ESLINT_VERSION=^4.19.1
 
 before_script:
   - npm i --no-save eslint@$ESLINT_VERSION; true
 
 script:
-  - if [ $ESLINT_VERSION = 4 ]; then npm run lint; fi
+  - if [ $ESLINT_VERSION = ^4.19.1 ]; then npm run lint; fi
   - npm test
 
 after_success:
