@@ -1,21 +1,11 @@
 /**
- * @author Toru Nagashima
- * @copyright 2016 Toru Nagashima. All rights reserved.
+ * @author Toru Nagashima <https://github.com/mysticatea>
  * See LICENSE file in root directory for full license.
  */
 "use strict"
 
-//------------------------------------------------------------------------------
-// Requirements
-//------------------------------------------------------------------------------
-
 const RuleTester = require("eslint").RuleTester
 const rule = require("../../../lib/rules/no-unused-enable")
-
-//------------------------------------------------------------------------------
-// Tests
-//------------------------------------------------------------------------------
-
 const tester = new RuleTester()
 
 tester.run("no-unused-enable", rule, {
@@ -56,7 +46,8 @@ var a = b
             code: "/*eslint-enable*/",
             errors: [
                 {
-                    message: "ESLint rules are re-enabled but those have not been disabled.",
+                    message:
+                        "ESLint rules are re-enabled but those have not been disabled.",
                     line: 1,
                     column: 0,
                     endLine: 1,
@@ -68,7 +59,8 @@ var a = b
             code: "/*eslint-enable no-undef*/",
             errors: [
                 {
-                    message: "'no-undef' rule is re-enabled but it has not been disabled.",
+                    message:
+                        "'no-undef' rule is re-enabled but it has not been disabled.",
                     line: 1,
                     column: 17,
                     endLine: 1,
@@ -83,7 +75,8 @@ var a = b
 `,
             errors: [
                 {
-                    message: "'no-undef' rule is re-enabled but it has not been disabled.",
+                    message:
+                        "'no-undef' rule is re-enabled but it has not been disabled.",
                     line: 3,
                     column: 17,
                     endLine: 3,

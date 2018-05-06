@@ -1,7 +1,0 @@
-{
-    "extends": ["mysticatea", "mysticatea/node"],
-    "rules": {
-        // It doesn't support rest parameters in Node 4.
-        "prefer-rest-params": "off"
-    }
-}

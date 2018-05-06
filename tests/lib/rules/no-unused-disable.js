@@ -1,21 +1,11 @@
 /**
- * @author Toru Nagashima
- * @copyright 2016 Toru Nagashima. All rights reserved.
+ * @author Toru Nagashima <https://github.com/mysticatea>
  * See LICENSE file in root directory for full license.
  */
 "use strict"
 
-//------------------------------------------------------------------------------
-// Requirements
-//------------------------------------------------------------------------------
-
 const RuleTester = require("eslint").RuleTester
 const rule = require("../../../lib/rules/no-unused-disable")
-
-//------------------------------------------------------------------------------
-// Tests
-//------------------------------------------------------------------------------
-
 const tester = new RuleTester()
 
 tester.run("no-unused-disable", rule, {
@@ -72,24 +62,28 @@ function baz() {
         {
             code: `/*eslint no-undef:off*/
 var a = b //eslint-disable-line`,
-            errors: [{
-                message: "ESLint rules are disabled but never reported.",
-                line: 2,
-                column: 0,
-                endLine: 2,
-                endColumn: 32,
-            }],
+            errors: [
+                {
+                    message: "ESLint rules are disabled but never reported.",
+                    line: 2,
+                    column: 0,
+                    endLine: 2,
+                    endColumn: 32,
+                },
+            ],
         },
         {
             code: `/*eslint no-undef:off*/
 var a = b //eslint-disable-line no-undef`,
-            errors: [{
-                message: "'no-undef' rule is disabled but never reported.",
-                line: 2,
-                column: 33,
-                endLine: 2,
-                endColumn: 41,
-            }],
+            errors: [
+                {
+                    message: "'no-undef' rule is disabled but never reported.",
+                    line: 2,
+                    column: 33,
+                    endLine: 2,
+                    endColumn: 41,
+                },
+            ],
         },
         {
             code: `/*eslint no-undef:off, no-unused-vars:off*/
@@ -103,7 +97,8 @@ var a = b //eslint-disable-line no-undef,no-unused-vars`,
                     endColumn: 41,
                 },
                 {
-                    message: "'no-unused-vars' rule is disabled but never reported.",
+                    message:
+                        "'no-unused-vars' rule is disabled but never reported.",
                     line: 2,
                     column: 42,
                     endLine: 2,
@@ -115,25 +110,29 @@ var a = b //eslint-disable-line no-undef,no-unused-vars`,
             code: `/*eslint no-undef:off*/
 //eslint-disable-next-line
 var a = b`,
-            errors: [{
-                message: "ESLint rules are disabled but never reported.",
-                line: 2,
-                column: 0,
-                endLine: 2,
-                endColumn: 27,
-            }],
+            errors: [
+                {
+                    message: "ESLint rules are disabled but never reported.",
+                    line: 2,
+                    column: 0,
+                    endLine: 2,
+                    endColumn: 27,
+                },
+            ],
         },
         {
             code: `/*eslint no-undef:off*/
 //eslint-disable-next-line no-undef
 var a = b`,
-            errors: [{
-                message: "'no-undef' rule is disabled but never reported.",
-                line: 2,
-                column: 28,
-                endLine: 2,
-                endColumn: 36,
-            }],
+            errors: [
+                {
+                    message: "'no-undef' rule is disabled but never reported.",
+                    line: 2,
+                    column: 28,
+                    endLine: 2,
+                    endColumn: 36,
+                },
+            ],
         },
         {
             code: `/*eslint no-undef:off, no-unused-vars:off*/
@@ -148,7 +147,8 @@ var a = b`,
                     endColumn: 36,
                 },
                 {
-                    message: "'no-unused-vars' rule is disabled but never reported.",
+                    message:
+                        "'no-unused-vars' rule is disabled but never reported.",
                     line: 2,
                     column: 37,
                     endLine: 2,
@@ -160,25 +160,29 @@ var a = b`,
             code: `/*eslint no-undef:off*/
 /*eslint-disable*/
 var a = b`,
-            errors: [{
-                message: "ESLint rules are disabled but never reported.",
-                line: 2,
-                column: 0,
-                endLine: 2,
-                endColumn: 19,
-            }],
+            errors: [
+                {
+                    message: "ESLint rules are disabled but never reported.",
+                    line: 2,
+                    column: 0,
+                    endLine: 2,
+                    endColumn: 19,
+                },
+            ],
         },
         {
             code: `/*eslint no-undef:off*/
 /*eslint-disable no-undef*/
 var a = b`,
-            errors: [{
-                message: "'no-undef' rule is disabled but never reported.",
-                line: 2,
-                column: 18,
-                endLine: 2,
-                endColumn: 26,
-            }],
+            errors: [
+                {
+                    message: "'no-undef' rule is disabled but never reported.",
+                    line: 2,
+                    column: 18,
+                    endLine: 2,
+                    endColumn: 26,
+                },
+            ],
         },
         {
             code: `/*eslint no-undef:off, no-unused-vars:off*/
@@ -193,7 +197,8 @@ var a = b`,
                     endColumn: 26,
                 },
                 {
-                    message: "'no-unused-vars' rule is disabled but never reported.",
+                    message:
+                        "'no-unused-vars' rule is disabled but never reported.",
                     line: 2,
                     column: 27,
                     endLine: 2,
@@ -206,26 +211,30 @@ var a = b`,
 /*eslint-disable*/
 var a = b
 /*eslint-enable*/`,
-            errors: [{
-                message: "ESLint rules are disabled but never reported.",
-                line: 2,
-                column: 0,
-                endLine: 2,
-                endColumn: 19,
-            }],
+            errors: [
+                {
+                    message: "ESLint rules are disabled but never reported.",
+                    line: 2,
+                    column: 0,
+                    endLine: 2,
+                    endColumn: 19,
+                },
+            ],
         },
         {
             code: `/*eslint no-undef:off*/
 /*eslint-disable no-undef*/
 var a = b
 /*eslint-enable*/`,
-            errors: [{
-                message: "'no-undef' rule is disabled but never reported.",
-                line: 2,
-                column: 18,
-                endLine: 2,
-                endColumn: 26,
-            }],
+            errors: [
+                {
+                    message: "'no-undef' rule is disabled but never reported.",
+                    line: 2,
+                    column: 18,
+                    endLine: 2,
+                    endColumn: 26,
+                },
+            ],
         },
         {
             code: `/*eslint no-undef:off, no-unused-vars:off*/
@@ -241,7 +250,8 @@ var a = b
                     endColumn: 26,
                 },
                 {
-                    message: "'no-unused-vars' rule is disabled but never reported.",
+                    message:
+                        "'no-unused-vars' rule is disabled but never reported.",
                     line: 2,
                     column: 27,
                     endLine: 2,
@@ -317,7 +327,8 @@ var a = b
             code: "/* eslint new-parens:error*/ /*eslint-disable new-parens*/",
             errors: [
                 {
-                    message: "'new-parens' rule is disabled but never reported.",
+                    message:
+                        "'new-parens' rule is disabled but never reported.",
                     line: 1,
                     column: 47,
                     endLine: 1,
@@ -325,6 +336,5 @@ var a = b
                 },
             ],
         },
-
     ],
 })

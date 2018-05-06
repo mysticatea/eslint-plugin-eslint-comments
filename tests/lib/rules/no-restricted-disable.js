@@ -1,21 +1,11 @@
 /**
- * @author Toru Nagashima
- * @copyright 2016 Toru Nagashima. All rights reserved.
+ * @author Toru Nagashima <https://github.com/mysticatea>
  * See LICENSE file in root directory for full license.
  */
 "use strict"
 
-//------------------------------------------------------------------------------
-// Requirements
-//------------------------------------------------------------------------------
-
 const RuleTester = require("eslint").RuleTester
 const rule = require("../../../lib/rules/no-restricted-disable")
-
-//------------------------------------------------------------------------------
-// Tests
-//------------------------------------------------------------------------------
-
 const tester = new RuleTester()
 
 tester.run("no-restricted-disable", rule, {
@@ -100,7 +90,8 @@ tester.run("no-restricted-disable", rule, {
         },
 
         {
-            code: "/*eslint-disable semi, no-extra-semi, semi-style, comma-style*/",
+            code:
+                "/*eslint-disable semi, no-extra-semi, semi-style, comma-style*/",
             options: ["*semi*"],
             errors: [
                 "Disabling 'semi' is not allowed.",

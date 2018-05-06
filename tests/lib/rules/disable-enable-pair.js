@@ -1,21 +1,11 @@
 /**
- * @author Toru Nagashima
- * @copyright 2016 Toru Nagashima. All rights reserved.
+ * @author Toru Nagashima <https://github.com/mysticatea>
  * See LICENSE file in root directory for full license.
  */
 "use strict"
 
-//------------------------------------------------------------------------------
-// Requirements
-//------------------------------------------------------------------------------
-
 const RuleTester = require("eslint").RuleTester
 const rule = require("../../../lib/rules/disable-enable-pair")
-
-//------------------------------------------------------------------------------
-// Tests
-//------------------------------------------------------------------------------
-
 const tester = new RuleTester()
 
 tester.run("disable-enable-pair", rule, {
@@ -108,7 +98,8 @@ var foo = 1
 `,
             errors: [
                 {
-                    message: "Requires 'eslint-enable' directive for 'no-undef'.",
+                    message:
+                        "Requires 'eslint-enable' directive for 'no-undef'.",
                     line: 2,
                     column: 18,
                     endLine: 2,
@@ -123,7 +114,8 @@ var foo = 1
 `,
             errors: [
                 {
-                    message: "Requires 'eslint-enable' directive for 'no-unused-vars'.",
+                    message:
+                        "Requires 'eslint-enable' directive for 'no-unused-vars'.",
                     line: 2,
                     column: 27,
                     endLine: 2,
@@ -139,7 +131,8 @@ var foo = 1
 `,
             errors: [
                 {
-                    message: "Requires 'eslint-enable' directive for 'no-undef'.",
+                    message:
+                        "Requires 'eslint-enable' directive for 'no-undef'.",
                     line: 2,
                     column: 18,
                     endLine: 2,
@@ -156,7 +149,8 @@ console.log();
             options: [{ allowWholeFile: true }],
             errors: [
                 {
-                    message: "Requires 'eslint-enable' directive for 'no-unused-vars'.",
+                    message:
+                        "Requires 'eslint-enable' directive for 'no-unused-vars'.",
                     line: 4,
                     column: 18,
                     endLine: 4,
@@ -172,7 +166,8 @@ console.log();
             options: [{ allowWholeFile: true }],
             errors: [
                 {
-                    message: "Requires 'eslint-enable' directive for 'no-unused-vars'.",
+                    message:
+                        "Requires 'eslint-enable' directive for 'no-unused-vars'.",
                     line: 3,
                     column: 18,
                     endLine: 3,
@@ -189,7 +184,8 @@ console.log();
             options: [{ allowWholeFile: true }],
             errors: [
                 {
-                    message: "Requires 'eslint-enable' directive for 'no-unused-vars'.",
+                    message:
+                        "Requires 'eslint-enable' directive for 'no-unused-vars'.",
                     line: 3,
                     column: 18,
                     endLine: 3,

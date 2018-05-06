@@ -1,8 +1,4 @@
-/**
- * @author Toru Nagashima
- * @copyright 2016 Toru Nagashima. All rights reserved.
- * See LICENSE file in root directory for full license.
- */
+/** DON'T EDIT THIS FILE WHICH WAS CREATED BY 'scripts/generate-index.js'. */
 "use strict"
 
 module.exports = {

@@ -1,21 +1,11 @@
 /**
- * @author Toru Nagashima
- * @copyright 2016 Toru Nagashima. All rights reserved.
+ * @author Toru Nagashima <https://github.com/mysticatea>
  * See LICENSE file in root directory for full license.
  */
 "use strict"
 
-//------------------------------------------------------------------------------
-// Requirements
-//------------------------------------------------------------------------------
-
 const RuleTester = require("eslint").RuleTester
 const rule = require("../../../lib/rules/no-aggregating-enable")
-
-//------------------------------------------------------------------------------
-// Tests
-//------------------------------------------------------------------------------
-
 const tester = new RuleTester()
 
 tester.run("no-aggregating-enable", rule, {
@@ -49,7 +39,9 @@ tester.run("no-aggregating-enable", rule, {
                 /*eslint-disable b*/
                 /*eslint-enable*/
             `,
-            errors: ["This `eslint-enable` comment affects 2 `eslint-disable` comments. An `eslint-enable` comment should be for an `eslint-disable` comment."],
+            errors: [
+                "This `eslint-enable` comment affects 2 `eslint-disable` comments. An `eslint-enable` comment should be for an `eslint-disable` comment.",
+            ],
         },
         {
             code: `
@@ -58,7 +50,9 @@ tester.run("no-aggregating-enable", rule, {
                 /*eslint-disable c*/
                 /*eslint-enable*/
             `,
-            errors: ["This `eslint-enable` comment affects 3 `eslint-disable` comments. An `eslint-enable` comment should be for an `eslint-disable` comment."],
+            errors: [
+                "This `eslint-enable` comment affects 3 `eslint-disable` comments. An `eslint-enable` comment should be for an `eslint-disable` comment.",
+            ],
         },
         {
             code: `
@@ -66,7 +60,9 @@ tester.run("no-aggregating-enable", rule, {
                 /*eslint-disable b*/
                 /*eslint-enable a, b*/
             `,
-            errors: ["This `eslint-enable` comment affects 2 `eslint-disable` comments. An `eslint-enable` comment should be for an `eslint-disable` comment."],
+            errors: [
+                "This `eslint-enable` comment affects 2 `eslint-disable` comments. An `eslint-enable` comment should be for an `eslint-disable` comment.",
+            ],
         },
     ],
 })
