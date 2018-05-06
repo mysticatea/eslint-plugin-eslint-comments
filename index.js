@@ -27,4 +27,7 @@ module.exports = {
         "no-unused-enable": require("./lib/rules/no-unused-enable"),
         "no-use": require("./lib/rules/no-use"),
     },
+    utils: {
+        patch: require("./lib/patch.js").patch,
+    },
 }

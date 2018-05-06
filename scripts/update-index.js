@@ -45,6 +45,9 @@ ${rules
             )
             .join("\n")}
     },
+    utils: {
+        patch: require("./lib/patch.js").patch,
+    },
 }
 `
     )
