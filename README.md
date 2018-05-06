@@ -6,7 +6,7 @@
 [![codecov](https://codecov.io/gh/mysticatea/eslint-plugin-eslint-comments/branch/master/graph/badge.svg)](https://codecov.io/gh/mysticatea/eslint-plugin-eslint-comments)
 [![Dependency Status](https://david-dm.org/mysticatea/eslint-plugin-eslint-comments.svg)](https://david-dm.org/mysticatea/eslint-plugin-eslint-comments)
 
-Additional ESLint rules for ESLint's directive-comments (e.g. `//eslint-disable-line`).
+Additional ESLint rules for ESLint directive comments (e.g. `//eslint-disable-line`).
 
 ## 💿 Installation
 
@@ -16,8 +16,8 @@ npm install --save-dev eslint eslint-plugin-eslint-comments
 
 ### Requirements
 
-- Node.js `^4.0.0`, `^6.0.0`, or newer.
-- ESLint `^4.7.0`, or newer.
+- Node.js `^6.5.0`, or newer versions.
+- ESLint `^4.19.1`, or newer versions.
 
 ## 📖 Usage
 
