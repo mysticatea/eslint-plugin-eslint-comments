@@ -17,7 +17,9 @@
     "ignore": "^3.3.8"
   },
   "devDependencies": {
+    "@types/node": "^10.0.4",
     "codecov": "^3.0.1",
+    "cross-spawn": "^6.0.5",
     "eslint": "^4.19.1",
     "eslint-plugin-mysticatea": "^5.0.0-beta.5",
     "mocha": "^5.1.1",
