@@ -475,6 +475,17 @@ var a = b //eslint-disable-line no-undef`,
                 ],
                 reportUnusedDisableDirectives: true,
             },
+
+            // Don't crash even if the source code has a parse error.
+            {
+                code:
+                    "/*eslint no-undef:error*/\nvar a = b c //eslint-disable-line no-undef",
+                errors: [
+                    {
+                        message: "Parsing error: Unexpected token c",
+                    },
+                ],
+            },
         ]) {
             it(code, () =>
                 runESLint(code, reportUnusedDisableDirectives).then(
