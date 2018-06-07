@@ -1,4 +1,4 @@
-# disallows ESLint directive-comments (eslint-comments/no-use)
+# disallow ESLint directive-comments (eslint-comments/no-use)
 
 Abuse of directive-comments may cause to overlook bugs or upset of coding style.
 This rule disallows a use of directive-comments.
@@ -7,19 +7,18 @@ This rule disallows a use of directive-comments.
 
 Examples of :-1: **incorrect** code for this rule:
 
-```js
-/*eslint eslint-comments/no-use: error */
+<eslint-playground type="bad" code="/*eslint eslint-comments/no-use: error */
 
 /* eslint no-undef: off */
 /* eslint-env browser */
-/* eslint-enable */
-/* eslint-disable */
+/* eslint-disable foo */
+/* eslint-enable bar */
 // eslint-disable-line
 // eslint-disable-next-line
 /* exported foo */
 /* global $ */
 /* globals a, b, c */
-```
+" />
 
 ## Options
 

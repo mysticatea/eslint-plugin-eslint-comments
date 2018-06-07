@@ -17,7 +17,7 @@ const CATEGORIES = ["Best Practices", "Stylistic Issues"]
  */
 function toTableRow(rule) {
     const mark = `${rule.recommended ? "🌟" : ""}${rule.fixable ? "✒️" : ""}`
-    const link = `[${rule.id}](./docs/rules/${rule.name}.md)`
+    const link = `[${rule.id}](./${rule.name}.html)`
     const description = rule.description || "(no description)"
     return `| ${link} | ${description} | ${mark} |`
 }

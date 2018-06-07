@@ -1,0 +1,14 @@
+extends:
+  - plugin:mysticatea/es2015
+  - plugin:mysticatea/+eslint-plugin
+
+overrides:
+  - files: "docs/.vuepress/components/*.vue"
+    parserOptions:
+      parser: babel-eslint
+
+  - files: "lib/rules/*.js"
+    rules:
+      mysticatea/eslint-plugin/require-meta-docs-url:
+        - error
+        - pattern: "https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/{{name}}.html"

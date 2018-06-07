@@ -1,4 +1,4 @@
-# disallows duplicate `eslint-disable` comments (eslint-comments/no-duplicate-disable)
+# disallow duplicate `eslint-disable` comments (eslint-comments/no-duplicate-disable)
 
 - 🌟 The `"extends": "plugin:eslint-comments/recommended"` property in a configuration file enables this rule.
 
@@ -11,34 +11,23 @@ This rule warns duplicate `eslint-disable` directive-comments.
 
 Examples of :-1: **incorrect** code for this rule:
 
-```js
-/*eslint eslint-comments/no-duplicate-disable: error */
+<eslint-playground type="bad" code="/*eslint eslint-comments/no-duplicate-disable: error */
 
 /*eslint-disable no-undef */
 
 var foo = bar() //eslint-disable-line no-undef
-```
-
-```js
-/*eslint eslint-comments/no-duplicate-disable: error */
-
-/*eslint-disable*/
-
-var foo = bar() //eslint-disable-line no-undef
-```
+" />
 
 Examples of :+1: **correct** code for this rule:
 
-```js
-/*eslint eslint-comments/no-duplicate-disable: error */
+<eslint-playground type="good" code="/*eslint eslint-comments/no-duplicate-disable: error */
 
 /*eslint-disable no-undef */
 
 var foo = bar()
-```
+" />
 
-```js
-/*eslint eslint-comments/no-duplicate-disable: error */
+<eslint-playground type="good" code="/*eslint eslint-comments/no-duplicate-disable: error */
 
 var foo = bar() //eslint-disable-line no-undef
-```
+" />

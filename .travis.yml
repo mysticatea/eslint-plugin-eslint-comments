@@ -18,3 +18,17 @@ script:
 
 after_success:
   - npm run codecov
+
+before_deploy:
+  - npm run docs:build
+
+deploy:
+  provider: pages
+  github-token: $ATOKEN
+  keep-history: true
+  local-dir: docs/.vuepress/dist
+  on:
+    branch: master
+    node: "10"
+    condition: $ESLINT_VERSION = ^4.19.1
+  skip-cleanup: true

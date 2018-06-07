@@ -1,6 +1,7 @@
 /.nyc_output
 /.vscode
 /coverage
+/docs/.vuepress/dist
 /node_modules
 /npm-debug.log
 /test.js

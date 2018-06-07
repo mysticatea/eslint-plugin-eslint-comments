@@ -1,4 +1,4 @@
-# disallows `eslint-disable` comments without rule names (eslint-comments/no-unlimited-disable)
+# disallow `eslint-disable` comments without rule names (eslint-comments/no-unlimited-disable)
 
 - 🌟 The `"extends": "plugin:eslint-comments/recommended"` property in a configuration file enables this rule.
 
@@ -9,16 +9,14 @@ So you should specify the rules to disable accurately.
 
 Examples of :-1: **incorrect** code for this rule:
 
-```js
-/*eslint eslint-comments/no-unlimited-disable: error */
+<eslint-playground type="bad" code="/*eslint eslint-comments/no-unlimited-disable: error */
 
 var foo; //eslint-disable-line
-```
+" />
 
 Examples of :+1: **correct** code for this rule:
 
-```js
-/*eslint eslint-comments/no-unlimited-disable: error */
+<eslint-playground type="good" code="/*eslint eslint-comments/no-unlimited-disable: error */
 
 var foo; //eslint-disable-line no-unused-vars
-```
+" />

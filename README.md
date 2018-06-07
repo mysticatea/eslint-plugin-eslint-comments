@@ -8,74 +8,9 @@
 
 Additional ESLint rules for ESLint directive comments (e.g. `//eslint-disable-line`).
 
-## 💿 Installation
-
-```
-npm install --save-dev eslint eslint-plugin-eslint-comments
-```
-
-### Requirements
-
-- Node.js `^6.5.0`, or newer versions.
-- ESLint `^4.19.1`, or newer versions.
-
 ## 📖 Usage
 
-Write in your ESLint configurations: http://eslint.org/docs/user-guide/configuring#using-the-configuration-from-a-plugin
-
-### Example
-
-**.eslintrc.json**
-
-```json
-{
-    "extends": [
-        "eslint:recommended",
-        "plugin:eslint-comments/recommended"
-    ],
-}
-```
-
-Or you can specify for each rule:
-
-```json
-{
-    "plugins": [
-        "eslint-comments"
-    ],
-    "rules": {
-        "eslint-comments/no-unused-disable": "error",
-        "eslint-comments/no-unused-enable": "error",
-        // ...
-    }
-}
-```
-
-## Rules
-
-- 🌟 mark: the rule is enabled by `eslint-comments/recommended` preset.
-- ✒️ mark: the rule is fixable by `eslint --fix` command.
-
-<!--RULES_TABLE_START-->
-### Best Practices
-
-|    | Rule ID | Description |
-|:---|:--------|:------------|
-| 🌟 | [eslint-comments/disable-enable-pair](./docs/rules/disable-enable-pair.md) | requires a `eslint-enable` comment for every `eslint-disable` comment |
-| 🌟 | [eslint-comments/no-aggregating-enable](./docs/rules/no-aggregating-enable.md) | disallows `eslint-enable` comments for multiple `eslint-disable` comments |
-| 🌟 | [eslint-comments/no-duplicate-disable](./docs/rules/no-duplicate-disable.md) | disallows duplicate `eslint-disable` comments |
-| 🌟 | [eslint-comments/no-unlimited-disable](./docs/rules/no-unlimited-disable.md) | disallows `eslint-disable` comments without rule names |
-|  | [eslint-comments/no-unused-disable](./docs/rules/no-unused-disable.md) | disallows unused `eslint-disable` comments |
-| 🌟 | [eslint-comments/no-unused-enable](./docs/rules/no-unused-enable.md) | disallows unused `eslint-enable` comments |
-
-### Stylistic Issues
-
-|    | Rule ID | Description |
-|:---|:--------|:------------|
-|  | [eslint-comments/no-restricted-disable](./docs/rules/no-restricted-disable.md) | disallows `eslint-disable` comments about specific rules |
-|  | [eslint-comments/no-use](./docs/rules/no-use.md) | disallows ESLint directive-comments |
-
-<!--RULES_TABLE_END-->
+- [Documentation](https://mysticatea.github.io/eslint-plugin-eslint-comments)
 
 ## 🚥 Semantic Versioning Policy
 
