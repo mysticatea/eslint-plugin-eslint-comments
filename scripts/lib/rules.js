@@ -10,7 +10,7 @@ const path = require("path")
 /**
  * @type {{id:string,name:string,category:string,description:string,recommended:boolean,fixable:boolean,deprecated:boolean,replacedBy:(string[]|null)}[]}
  */
-module.exports = fs
+const rules = fs
     .readdirSync(path.resolve(__dirname, "../../lib/rules"))
     .map(fileName => path.basename(fileName, ".js"))
     .map(name => {
@@ -26,3 +26,13 @@ module.exports = fs
             replacedBy: meta.docs.replacedBy || null,
         }
     })
+
+module.exports = rules
+module.exports.withCategories = ["Best Practices", "Stylistic Issues"].map(
+    category => ({
+        category,
+        rules: rules.filter(
+            rule => rule.category === category && !rule.deprecated
+        ),
+    })
+)

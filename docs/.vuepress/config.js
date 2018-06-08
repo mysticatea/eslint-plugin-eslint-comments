@@ -4,7 +4,7 @@
  */
 "use strict"
 
-const rules = require("../../scripts/lib/rules")
+const { withCategories } = require("../../scripts/lib/rules")
 require("../../scripts/update-docs-headers")
 require("../../scripts/update-docs-index")
 
@@ -27,27 +27,23 @@ module.exports = {
             updatePopup: true,
         },
 
-        nav: [
-            { text: "Guide", link: "/guide/getting-started" },
-            { text: "Rules", link: "/rules/" },
-        ],
+        nav: [{ text: "Guide", link: "/" }, { text: "Rules", link: "/rules/" }],
 
         sidebarDepth: 0,
-        sidebar: [
-            {
-                title: "Guide",
-                collapsable: false,
-                children: ["/", "/guide/getting-started"],
-            },
-            {
-                title: "Rules",
-                collapsable: false,
-                children: [
-                    "/rules/",
-                    ...rules.map(({ id, name }) => [`/rules/${name}`, id]),
-                ],
-            },
-        ],
+        sidebar: {
+            "/rules/": [
+                "/rules/",
+                ...withCategories.map(({ category, rules }) => ({
+                    title: category,
+                    collapsable: false,
+                    children: rules.map(rule => [
+                        `/rules/${rule.name}`,
+                        rule.id,
+                    ]),
+                })),
+            ],
+            "/": ["/", "/getting-started", "/rules/"],
+        },
     },
 
     configureWebpack: {
