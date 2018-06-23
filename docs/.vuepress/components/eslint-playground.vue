@@ -88,7 +88,7 @@ export default {
 
     async mounted() {
         // Load linter.
-        const { default: Linter } = await import("eslint4b")
+        const { default: Linter } = await import("eslint4b/dist/linter")
         const linter = (this.linter = new Linter())
 
         for (const ruleId of Object.keys(rules)) {
