@@ -8,12 +8,13 @@ node_js:
 
 env:
   - ESLINT_VERSION=^4.19.1
+  - ESLINT_VERSION=^5.0.0
 
 before_script:
   - npm i --no-save eslint@$ESLINT_VERSION; true
 
 script:
-  - if [ $ESLINT_VERSION = ^4.19.1 ]; then npm run lint; fi
+  - if [ $ESLINT_VERSION = ^5.0.0 ]; then npm run lint; fi
   - npm test
 
 after_success:
@@ -30,5 +31,5 @@ deploy:
   on:
     branch: master
     node: "10"
-    condition: $ESLINT_VERSION = ^4.19.1
+    condition: $ESLINT_VERSION = ^5.0.0
   skip-cleanup: true
