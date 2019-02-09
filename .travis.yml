@@ -21,7 +21,9 @@ after_success:
   - npm run codecov
 
 before_deploy:
-  - npm run docs:build
+  - rm -rf node_modules
+  - yarn
+  - yarn run docs:build
 
 deploy:
   provider: pages
