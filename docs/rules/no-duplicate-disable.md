@@ -1,4 +1,6 @@
-# disallow duplicate `eslint-disable` comments (eslint-comments/no-duplicate-disable)
+# eslint-comments/no-duplicate-disable
+
+> disallow duplicate `eslint-disable` comments
 
 - 🌟 The `"extends": "plugin:eslint-comments/recommended"` property in a configuration file enables this rule.
 

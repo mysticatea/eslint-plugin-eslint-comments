@@ -1,6 +1,8 @@
-# disallows unused `eslint-disable` comments (eslint-comments/no-unused-disable)
+# eslint-comments/no-unused-disable
 
-- ✒️ This rule is fixable. The fixer removes the comment. Note that it removes the entire comment, even if multiple rules were disabled, and only one was unused, which is likely undesirable.
+> disallow unused `eslint-disable` comments
+
+- ✒️ The `--fix` option on the [command line](http://eslint.org/docs/user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
 
 Since refactoring or a bug fix of upstream, an `eslint-disable` directive-comment may become unnecessary.
 In that case, you should remove the garbage as soon as possible since the garbage may cause to overlook ESLint warnings in future.

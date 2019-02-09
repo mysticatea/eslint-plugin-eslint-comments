@@ -1,4 +1,6 @@
-# disallow `eslint-disable` comments about specific rules (eslint-comments/no-restricted-disable)
+# eslint-comments/no-restricted-disable
+
+> disallow `eslint-disable` comments about specific rules
 
 This rule warns `eslint-disable` directive-comments if the comment disable specific rules.
 

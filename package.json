@@ -18,6 +18,10 @@
   },
   "devDependencies": {
     "@types/node": "^10.0.4",
+    "@vuepress/plugin-google-analytics": "^1.0.0-alpha.0",
+    "@vuepress/plugin-last-updated": "^1.0.0-alpha.0",
+    "@vuepress/plugin-pwa": "^1.0.0-alpha.0",
+    "@vuepress/plugin-search": "^1.0.0-alpha.0",
     "babel-eslint": "^8.2.3",
     "codecov": "^3.0.1",
     "cross-spawn": "^6.0.5",
@@ -30,7 +34,7 @@
     "rimraf": "^2.6.2",
     "string-replace-loader": "^2.1.1",
     "vue-eslint-editor": "^0.1.0",
-    "vuepress": "github:mysticatea/vuepress#skip-waiting"
+    "vuepress": "^1.0.0-alpha.37"
   },
   "scripts": {
     "preversion": "npm test",

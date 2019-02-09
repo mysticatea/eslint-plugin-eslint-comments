@@ -1,4 +1,6 @@
-# require a `eslint-enable` comment for every `eslint-disable` comment (eslint-comments/disable-enable-pair)
+# eslint-comments/disable-enable-pair
+
+> require a `eslint-enable` comment for every `eslint-disable` comment
 
 - 🌟 The `"extends": "plugin:eslint-comments/recommended"` property in a configuration file enables this rule.
 

@@ -4,6 +4,7 @@
         :config="config"
         :code="code"
         :class="`eslint-playground-${type}`"
+        :style="{ height }"
         class="eslint-playground"
         dark
         fix
@@ -84,11 +85,16 @@ export default {
 
             return config
         },
+
+        height() {
+            const numLines = this.code.split("\n").length
+            return `${numLines * 20 + 10}px`
+        }
     },
 
     async mounted() {
         // Load linter.
-        const { default: Linter } = await import("eslint4b/dist/linter")
+        const { default: Linter } = await import("eslint4b")
         const linter = (this.linter = new Linter())
 
         for (const ruleId of Object.keys(rules)) {
@@ -101,10 +107,10 @@ export default {
 <style>
 .eslint-playground {
     width: 100%;
-    min-height: 160px;
     margin-bottom: 8px;
     box-sizing: border-box;
-    border: 1.5px solid gray;
+    border: 2px solid gray;
+    border-radius: 3px;
 }
 .eslint-playground-good {
     border-color: #4caf50;

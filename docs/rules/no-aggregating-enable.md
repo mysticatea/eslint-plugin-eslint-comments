@@ -1,4 +1,6 @@
-# disallow a `eslint-enable` comment for multiple `eslint-disable` comments (eslint-comments/no-aggregating-enable)
+# eslint-comments/no-aggregating-enable
+
+> disallow a `eslint-enable` comment for multiple `eslint-disable` comments
 
 - 🌟 The `"extends": "plugin:eslint-comments/recommended"` property in a configuration file enables this rule.
 
@@ -6,6 +8,7 @@
 It can enable a rule unintentionally.
 
 ```js
+/*eslint-disable no-undef */
 f()
 /*eslint-disable no-var */
 var a

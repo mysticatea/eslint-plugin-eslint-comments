@@ -1,4 +1,6 @@
-# disallow ESLint directive-comments (eslint-comments/no-use)
+# eslint-comments/no-use
+
+> disallow ESLint directive-comments
 
 Abuse of directive-comments may cause to overlook bugs or upset of coding style.
 This rule disallows a use of directive-comments.

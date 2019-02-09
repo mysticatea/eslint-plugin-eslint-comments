@@ -7,11 +7,11 @@
 const fs = require("fs")
 const path = require("path")
 const rules = require("./lib/rules")
-const PLACE_HOLDER = /^#[^\n]*\n+(?:- .+\n)*\n*/
+const PLACE_HOLDER = /^#[^\n]*\n+> .+\n+(?:- .+\n)*\n*/
 
 for (const rule of rules) {
     const filePath = path.join(__dirname, `../docs/rules/${rule.name}.md`)
-    const headerLines = [`# ${rule.description} (${rule.id})`]
+    const headerLines = [`# ${rule.id}`, "", `> ${rule.description}`]
 
     if (rule.recommended || rule.deprecated || rule.fixable) {
         headerLines.push("")

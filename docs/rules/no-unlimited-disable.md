@@ -1,4 +1,6 @@
-# disallow `eslint-disable` comments without rule names (eslint-comments/no-unlimited-disable)
+# eslint-comments/no-unlimited-disable
+
+> disallow `eslint-disable` comments without rule names
 
 - 🌟 The `"extends": "plugin:eslint-comments/recommended"` property in a configuration file enables this rule.
 
