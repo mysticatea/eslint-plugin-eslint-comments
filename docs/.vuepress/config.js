@@ -10,6 +10,12 @@ module.exports = {
     description: "Additional ESLint rules for ESLint directive comments.",
     evergreen: true,
 
+    plugins: {
+        "@vuepress/google-analytics": { ga: "UA-12936571-6" },
+        "@vuepress/last-updated": {},
+        "@vuepress/pwa": { updatePopup: true },
+    },
+
     themeConfig: {
         repo: "mysticatea/eslint-plugin-eslint-comments",
         docsRepo: "mysticatea/eslint-plugin-eslint-comments",
@@ -37,12 +43,6 @@ module.exports = {
                     children: rules.map(rule => `/rules/${rule.name}`),
                 })),
             ],
-        },
-
-        plugins: {
-            "@vuepress/google-analytics": { ga: "UA-12936571-6" },
-            "@vuepress/last-updated": {},
-            "@vuepress/pwa": { updatePopup: true },
         },
     },
 
