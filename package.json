@@ -44,8 +44,10 @@
     "docs:watch": "vuepress dev docs",
     "lint": "eslint lib scripts tests",
     "pretest": "npm run -s lint",
-    "test": "nyc mocha \"tests/lib/**/*.js\" --reporter dot --timeout 4000",
-    "watch": "mocha \"tests/lib/**/*.js\" --reporter dot --timeout 4000 --watch --growl",
+    "test": "nyc npm run -s test:mocha",
+    "test:ci": "nyc npm run -s test:mocha",
+    "test:mocha": "mocha \"tests/lib/**/*.js\" --reporter dot --timeout 4000",
+    "watch": "npm run -s test:mocha -- --watch --growl",
     "coverage": "nyc report --reporter lcov && opener coverage/lcov-report/index.html",
     "codecov": "nyc report --reporter lcovonly && codecov"
   },

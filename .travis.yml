@@ -14,8 +14,8 @@ before_script:
   - npm i --no-save eslint@$ESLINT_VERSION; true
 
 script:
-  - if [ $ESLINT_VERSION = ^5.0.0 ]; then npm run lint; fi
-  - npm test
+  - if [ $ESLINT_VERSION = ^5.0.0 ]; then npm run -s lint; fi
+  - npm run -s test:ci
 
 after_success:
   - npm run codecov
