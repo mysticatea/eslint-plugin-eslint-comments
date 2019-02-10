@@ -1,6 +1,6 @@
 extends:
-  - plugin:mysticatea/es2015
-  - plugin:mysticatea/+eslint-plugin
+  - plugin:@mysticatea/es2015
+  - plugin:@mysticatea/+eslint-plugin
 
 overrides:
   - files: "docs/.vuepress/components/*.vue"
@@ -9,6 +9,6 @@ overrides:
 
   - files: "lib/rules/*.js"
     rules:
-      mysticatea/eslint-plugin/require-meta-docs-url:
+      "@mysticatea/eslint-plugin/require-meta-docs-url":
         - error
         - pattern: "https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/{{name}}.html"

@@ -7,7 +7,7 @@
 const fs = require("fs")
 const path = require("path")
 const rules = require("./lib/rules")
-const PLACE_HOLDER = /^#[^\n]*\n+> .+\n+(?:- .+\n)*\n*/
+const PLACE_HOLDER = /^#[^\n]*\n+> .+\n+(?:- .+\n)*\n*/u
 
 for (const rule of rules) {
     const filePath = path.join(__dirname, `../docs/rules/${rule.name}.md`)
