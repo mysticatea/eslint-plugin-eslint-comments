@@ -15,7 +15,7 @@ const { withCategories } = require("./lib/rules")
  */
 function toTableRow(rule) {
     const mark = `${rule.recommended ? "🌟" : ""}${rule.fixable ? "✒️" : ""}`
-    const link = `[eslint-comments/<wbr>${rule.name}](./${rule.name}.html)`
+    const link = `[eslint-comments/<wbr>${rule.name}](./${rule.name}.md)`
     const description = rule.description || "(no description)"
     return `| ${link} | ${description} | ${mark} |`
 }
