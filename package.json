@@ -51,7 +51,7 @@
     "test:mocha": "mocha \"tests/lib/**/*.js\" --reporter dot --timeout 8000",
     "watch": "npm run -s test:mocha -- --watch --growl",
     "coverage": "nyc report --reporter lcov && opener coverage/lcov-report/index.html",
-    "codecov": "nyc report --reporter text-lcov | codecov --pipe"
+    "codecov": "nyc report --reporter text-lcov | codecov --pipe --disable=gcov"
   },
   "repository": {
     "type": "git",
