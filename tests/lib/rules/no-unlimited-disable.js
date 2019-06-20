@@ -11,10 +11,10 @@ const tester = new RuleTester()
 tester.run("no-unlimited-disable", rule, {
     valid: [
         "/*eslint-enable*/",
-        "/*eslint-disable foo*/",
-        "//eslint-disable-line foo",
-        "//eslint-disable-next-line foo",
-        "var foo;\n//eslint-disable-line foo",
+        "/*eslint-disable eqeqeq*/",
+        "//eslint-disable-line eqeqeq",
+        "//eslint-disable-next-line eqeqeq",
+        "var foo;\n//eslint-disable-line eqeqeq",
     ],
     invalid: [
         {
