@@ -19,9 +19,7 @@
   "devDependencies": {
     "@mysticatea/eslint-plugin": "^9.0.1",
     "@types/node": "^10.0.4",
-    "@vuepress/plugin-google-analytics": "^1.0.0-alpha.39",
-    "@vuepress/plugin-last-updated": "^1.0.0-alpha.39",
-    "@vuepress/plugin-pwa": "^1.0.0-alpha.39",
+    "@vuepress/plugin-pwa": "^1.0.1",
     "babel-eslint": "^10.0.1",
     "codecov": "^3.3.0",
     "cross-spawn": "^6.0.5",
@@ -34,7 +32,7 @@
     "rimraf": "^2.6.2",
     "string-replace-loader": "^2.1.1",
     "vue-eslint-editor": "^0.1.0",
-    "vuepress": "^1.0.0-alpha.39"
+    "vuepress": "^1.0.1"
   },
   "scripts": {
     "preversion": "npm test",

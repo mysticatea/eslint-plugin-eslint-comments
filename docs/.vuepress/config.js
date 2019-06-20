@@ -11,8 +11,6 @@ module.exports = {
     evergreen: true,
 
     plugins: {
-        "@vuepress/google-analytics": { ga: "UA-12936571-6" },
-        "@vuepress/last-updated": {},
         "@vuepress/pwa": { updatePopup: true },
     },
 
@@ -50,7 +48,10 @@ module.exports = {
         module: {
             rules: [
                 {
-                    test: new RegExp(String.raw`internal[\\/]get-linters\.js$`),
+                    test: new RegExp(
+                        String.raw`internal[\\/]get-linters\.js$`,
+                        "u"
+                    ),
                     loader: "string-replace-loader",
                     options: {
                         search: "[\\s\\S]+", // whole file.
