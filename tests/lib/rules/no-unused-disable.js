@@ -409,17 +409,18 @@ var a = b//eslint-disable-line no-undef`,
 /*eslint-disable
     no-undef,
     no-unused-vars,
-    xxxx
+    eqeqeq
 */
 var a = b
 /*eslint-enable*/`,
                 errors: [
                     {
-                        message: "'xxxx' rule is disabled but never reported.",
+                        message:
+                            "'eqeqeq' rule is disabled but never reported.",
                         line: 5,
                         column: 5,
                         endLine: 5,
-                        endColumn: 9,
+                        endColumn: 11,
                     },
                 ],
             },

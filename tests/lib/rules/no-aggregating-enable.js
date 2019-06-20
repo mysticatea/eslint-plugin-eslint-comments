@@ -11,32 +11,32 @@ const tester = new RuleTester()
 tester.run("no-aggregating-enable", rule, {
     valid: [
         `
-            /*eslint-disable a*/
-            /*eslint-enable a*/
+            /*eslint-disable no-redeclare*/
+            /*eslint-enable no-redeclare*/
         `,
         `
-            /*eslint-disable a*/
-            /*eslint-enable b*/
+            /*eslint-disable no-redeclare*/
+            /*eslint-enable no-shadow*/
         `,
         `
-            /*eslint-disable a, b*/
+            /*eslint-disable no-redeclare, no-shadow*/
             /*eslint-enable*/
         `,
         `
-            /*eslint-disable a, b*/
-            /*eslint-enable a, b*/
+            /*eslint-disable no-redeclare, no-shadow*/
+            /*eslint-enable no-redeclare, no-shadow*/
         `,
         `
-            /*eslint-disable a, b*/
-            /*eslint-enable a*/
-            /*eslint-enable b*/
+            /*eslint-disable no-redeclare, no-shadow*/
+            /*eslint-enable no-redeclare*/
+            /*eslint-enable no-shadow*/
         `,
     ],
     invalid: [
         {
             code: `
-                /*eslint-disable a*/
-                /*eslint-disable b*/
+                /*eslint-disable no-redeclare*/
+                /*eslint-disable no-shadow*/
                 /*eslint-enable*/
             `,
             errors: [
@@ -45,9 +45,9 @@ tester.run("no-aggregating-enable", rule, {
         },
         {
             code: `
-                /*eslint-disable a*/
-                /*eslint-disable b*/
-                /*eslint-disable c*/
+                /*eslint-disable no-redeclare*/
+                /*eslint-disable no-shadow*/
+                /*eslint-disable no-undef*/
                 /*eslint-enable*/
             `,
             errors: [
@@ -56,9 +56,9 @@ tester.run("no-aggregating-enable", rule, {
         },
         {
             code: `
-                /*eslint-disable a*/
-                /*eslint-disable b*/
-                /*eslint-enable a, b*/
+                /*eslint-disable no-redeclare*/
+                /*eslint-disable no-shadow*/
+                /*eslint-enable no-redeclare, no-shadow*/
             `,
             errors: [
                 "This `eslint-enable` comment affects 2 `eslint-disable` comments. An `eslint-enable` comment should be for an `eslint-disable` comment.",
