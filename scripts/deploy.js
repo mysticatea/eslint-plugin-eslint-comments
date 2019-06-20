@@ -34,13 +34,12 @@ function exec(command) {
 
     // Clean.
     for (const filename of await fs.readdir(DEPLOY_ROOT)) {
-        const stat = await fs.stat(filename)
-        if (!stat.isFile() || filename.startsWith(".")) {
+        if (filename === "docs" || filename.startsWith(".")) {
             continue
         }
 
-        console.log(`> rm ${filename}`)
-        await fs.unlink(filename)
+        console.log(`> rm -rf ${filename}`)
+        await fs.remove(filename)
     }
 
     // Move.
@@ -53,6 +52,8 @@ function exec(command) {
     }
 
     // Commit.
+    await exec('git config --global user.email "star.ctor@gmail.com"')
+    await exec('git config --global user.name "Toru Nagashima"')
     await exec("git add -A")
     let updated = false
     try {
