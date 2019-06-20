@@ -27,6 +27,7 @@
     "cross-spawn": "^6.0.5",
     "eslint": "^5.12.0",
     "eslint4b": "^5.12.0",
+    "fs-extra": "^8.0.1",
     "mocha": "^5.1.1",
     "nyc": "^13.2.0",
     "opener": "^1.4.3",
@@ -37,11 +38,12 @@
   },
   "scripts": {
     "preversion": "npm test",
-    "version": "node scripts/update.js && git add .",
+    "version": "node scripts/update && git add .",
     "postversion": "git push && git push --tags",
     "clean": "rimraf .nyc_output coverage docs/.vuepress/dist",
     "docs:build": "vuepress build docs",
     "docs:watch": "vuepress dev docs",
+    "docs:deploy": "node scripts/deploy",
     "lint": "eslint lib scripts tests",
     "pretest": "npm run -s lint",
     "test": "nyc npm run -s test:mocha",
@@ -49,7 +51,7 @@
     "test:mocha": "mocha \"tests/lib/**/*.js\" --reporter dot --timeout 4000",
     "watch": "npm run -s test:mocha -- --watch --growl",
     "coverage": "nyc report --reporter lcov && opener coverage/lcov-report/index.html",
-    "codecov": "nyc report --reporter lcovonly && codecov"
+    "codecov": "nyc report --reporter lcovonly && codecov --disable=gcov"
   },
   "repository": {
     "type": "git",
