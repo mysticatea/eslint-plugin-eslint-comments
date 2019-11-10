@@ -133,6 +133,12 @@ function baz() {
     var foo = 3  //eslint-disable-line no-shadow
 }
 `,
+            `
+            /* eslint capitalized-comments: ["error"] */\n// eslint-disable-next-line capitalized-comments\n// lowercase comment\n
+            `,
+            `
+            /* eslint capitalized-comments: ["error"] */\r\n// eslint-disable-next-line capitalized-comments\r\n/* lowercase comment */\r\n
+            `,
         ]) {
             it(code, () =>
                 runESLint(code).then(messages => {
