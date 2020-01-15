@@ -15,6 +15,11 @@ tester.run("no-unlimited-disable", rule, {
         "//eslint-disable-line eqeqeq",
         "//eslint-disable-next-line eqeqeq",
         "var foo;\n//eslint-disable-line eqeqeq",
+        {
+            code: "/*eslint-disable */",
+            options: [{ excludePaths: ["__generated__/*"] }],
+            filename: "__generated__/File.js",
+        },
     ],
     invalid: [
         {
@@ -58,6 +63,14 @@ tester.run("no-unlimited-disable", rule, {
             errors: [
                 "Unexpected unlimited 'eslint-disable-line' comment. Specify some rule names to disable.",
             ],
+        },
+        {
+            code: "/*eslint-disable */",
+            options: [{ excludePaths: ["__generated__/*"] }],
+            errors: [
+                "Unexpected unlimited 'eslint-disable' comment. Specify some rule names to disable.",
+            ],
+            filename: "path/File.js",
         },
     ],
 })
