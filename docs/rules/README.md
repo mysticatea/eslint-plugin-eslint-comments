@@ -20,4 +20,5 @@
 |:--------|:------------|:---|
 | [eslint-comments/<wbr>no-restricted-disable](./no-restricted-disable.md) | disallow `eslint-disable` comments about specific rules |  |
 | [eslint-comments/<wbr>no-use](./no-use.md) | disallow ESLint directive-comments |  |
+| [eslint-comments/<wbr>require-description](./require-description.md) | require include descriptions in ESLint directive-comments |  |
 
