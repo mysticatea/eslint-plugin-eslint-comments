@@ -4,6 +4,8 @@
  */
 "use strict"
 
+const semver = require("semver")
+const eslintVersion = require("eslint/package").version
 const { Linter, RuleTester } = require("eslint")
 const rule = require("../../../lib/rules/no-restricted-disable")
 const coreRules = new Linter().getRules()
@@ -155,10 +157,14 @@ tester.run("no-restricted-disable", rule, {
             ],
         },
         // -- description
-        {
-            code: "/*eslint-disable -- description*/",
-            options: ["eqeqeq"],
-            errors: ["Disabling 'eqeqeq' is not allowed."],
-        },
+        ...(semver.satisfies(eslintVersion, ">=7.0.0 || <6.0.0")
+            ? [
+                  {
+                      code: "/*eslint-disable -- description*/",
+                      options: ["eqeqeq"],
+                      errors: ["Disabling 'eqeqeq' is not allowed."],
+                  },
+              ]
+            : []),
     ],
 })

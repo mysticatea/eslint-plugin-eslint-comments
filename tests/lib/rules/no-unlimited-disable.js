@@ -4,6 +4,8 @@
  */
 "use strict"
 
+const semver = require("semver")
+const eslintVersion = require("eslint/package").version
 const RuleTester = require("eslint").RuleTester
 const rule = require("../../../lib/rules/no-unlimited-disable")
 const tester = new RuleTester()
@@ -93,11 +95,15 @@ tester.run("no-unlimited-disable", rule, {
             ],
         },
         // -- description
-        {
-            code: "/*eslint-disable -- description */",
-            errors: [
-                "Unexpected unlimited 'eslint-disable' comment. Specify some rule names to disable.",
-            ],
-        },
+        ...(semver.satisfies(eslintVersion, ">=7.0.0 || <6.0.0")
+            ? [
+                  {
+                      code: "/*eslint-disable -- description */",
+                      errors: [
+                          "Unexpected unlimited 'eslint-disable' comment. Specify some rule names to disable.",
+                      ],
+                  },
+              ]
+            : []),
     ],
 })
