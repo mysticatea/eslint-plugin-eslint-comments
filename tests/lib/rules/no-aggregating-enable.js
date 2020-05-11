@@ -64,5 +64,16 @@ tester.run("no-aggregating-enable", rule, {
                 "This `eslint-enable` comment affects 2 `eslint-disable` comments. An `eslint-enable` comment should be for an `eslint-disable` comment.",
             ],
         },
+        // -- description
+        {
+            code: `
+                /*eslint-disable no-redeclare*/
+                /*eslint-disable no-shadow*/
+                /*eslint-enable -- description*/
+            `,
+            errors: [
+                "This `eslint-enable` comment affects 2 `eslint-disable` comments. An `eslint-enable` comment should be for an `eslint-disable` comment.",
+            ],
+        },
     ],
 })

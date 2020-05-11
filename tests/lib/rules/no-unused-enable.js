@@ -84,5 +84,19 @@ var a = b
                 },
             ],
         },
+        // -- description
+        {
+            code: "/*eslint-enable -- description*/",
+            errors: [
+                {
+                    message:
+                        "ESLint rules are re-enabled but those have not been disabled.",
+                    line: 1,
+                    column: 0,
+                    endLine: 1,
+                    endColumn: 33,
+                },
+            ],
+        },
     ],
 })

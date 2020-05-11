@@ -14,7 +14,10 @@ tester.run("no-unlimited-disable", rule, {
         "/*eslint-disable eqeqeq*/",
         "//eslint-disable-line eqeqeq",
         "//eslint-disable-next-line eqeqeq",
+        "/*eslint-disable-line eqeqeq*/",
+        "/*eslint-disable-next-line eqeqeq*/",
         "var foo;\n//eslint-disable-line eqeqeq",
+        "var foo;\n/*eslint-disable-line eqeqeq*/",
     ],
     invalid: [
         {
@@ -36,7 +39,19 @@ tester.run("no-unlimited-disable", rule, {
             ],
         },
         {
+            code: "/*eslint-disable-line*/",
+            errors: [
+                "Unexpected unlimited 'eslint-disable-line' comment. Specify some rule names to disable.",
+            ],
+        },
+        {
             code: "// eslint-disable-line ",
+            errors: [
+                "Unexpected unlimited 'eslint-disable-line' comment. Specify some rule names to disable.",
+            ],
+        },
+        {
+            code: "/* eslint-disable-line */",
             errors: [
                 "Unexpected unlimited 'eslint-disable-line' comment. Specify some rule names to disable.",
             ],
@@ -48,7 +63,19 @@ tester.run("no-unlimited-disable", rule, {
             ],
         },
         {
+            code: "/*eslint-disable-next-line*/",
+            errors: [
+                "Unexpected unlimited 'eslint-disable-next-line' comment. Specify some rule names to disable.",
+            ],
+        },
+        {
             code: "// eslint-disable-next-line ",
+            errors: [
+                "Unexpected unlimited 'eslint-disable-next-line' comment. Specify some rule names to disable.",
+            ],
+        },
+        {
+            code: "/* eslint-disable-next-line */",
             errors: [
                 "Unexpected unlimited 'eslint-disable-next-line' comment. Specify some rule names to disable.",
             ],
@@ -57,6 +84,19 @@ tester.run("no-unlimited-disable", rule, {
             code: "var foo;\n//eslint-disable-line",
             errors: [
                 "Unexpected unlimited 'eslint-disable-line' comment. Specify some rule names to disable.",
+            ],
+        },
+        {
+            code: "var foo;\n/*eslint-disable-line*/",
+            errors: [
+                "Unexpected unlimited 'eslint-disable-line' comment. Specify some rule names to disable.",
+            ],
+        },
+        // -- description
+        {
+            code: "/*eslint-disable -- description */",
+            errors: [
+                "Unexpected unlimited 'eslint-disable' comment. Specify some rule names to disable.",
             ],
         },
     ],

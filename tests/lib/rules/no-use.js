@@ -17,8 +17,6 @@ tester.run("no-use", rule, {
         "// global",
         "// globals",
         "// eslint-env",
-        "/* eslint-disable-line */",
-        "/* eslint-disable-next-line */",
         "/* just eslint in a normal comment */",
         {
             code: "/* eslint */",
@@ -42,6 +40,14 @@ tester.run("no-use", rule, {
         },
         {
             code: "// eslint-disable-next-line",
+            options: [{ allow: ["eslint-disable-next-line"] }],
+        },
+        {
+            code: "/* eslint-disable-line */",
+            options: [{ allow: ["eslint-disable-line"] }],
+        },
+        {
+            code: "/* eslint-disable-next-line */",
             options: [{ allow: ["eslint-disable-next-line"] }],
         },
         {
@@ -80,6 +86,14 @@ tester.run("no-use", rule, {
         },
         {
             code: "// eslint-disable-next-line",
+            errors: ["Unexpected ESLint directive comment."],
+        },
+        {
+            code: "/* eslint-disable-line */",
+            errors: ["Unexpected ESLint directive comment."],
+        },
+        {
+            code: "/* eslint-disable-next-line */",
             errors: ["Unexpected ESLint directive comment."],
         },
         {

@@ -24,6 +24,8 @@ tester.run("disable-enable-pair", rule, {
 `,
         "//eslint-disable-line",
         "//eslint-disable-next-line",
+        "/*eslint-disable-line*/",
+        "/*eslint-disable-next-line*/",
         "/*eslint no-undef: off */",
         `
 function foo() {
@@ -76,6 +78,15 @@ var foo = 1
 `,
             options: [{ allowWholeFile: true }],
         },
+        // -- description
+        `
+/*eslint-disable no-undef -- description*/
+/*eslint-enable no-undef*/
+`,
+        `
+/*eslint-disable no-undef,no-unused-vars -- description*/
+/*eslint-enable no-undef,no-unused-vars*/
+`,
     ],
     invalid: [
         {
@@ -179,6 +190,25 @@ console.log();
             code: `
 {
 /*eslint-disable no-unused-vars*/
+}
+`,
+            options: [{ allowWholeFile: true }],
+            errors: [
+                {
+                    message:
+                        "Requires 'eslint-enable' directive for 'no-unused-vars'.",
+                    line: 3,
+                    column: 18,
+                    endLine: 3,
+                    endColumn: 32,
+                },
+            ],
+        },
+        // -- description
+        {
+            code: `
+{
+/*eslint-disable no-unused-vars -- description */
 }
 `,
             options: [{ allowWholeFile: true }],

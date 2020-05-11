@@ -17,6 +17,8 @@ tester.run("no-restricted-disable", rule, {
         "/*eslint-disable*/",
         "//eslint-disable-line",
         "//eslint-disable-next-line",
+        "/*eslint-disable-line*/",
+        "/*eslint-disable-next-line*/",
         {
             code: "/*eslint-disable eqeqeq*/",
             options: ["no-unused-vars"],
@@ -47,7 +49,17 @@ tester.run("no-restricted-disable", rule, {
             errors: ["Disabling 'eqeqeq' is not allowed."],
         },
         {
+            code: "/*eslint-disable-line eqeqeq*/",
+            options: ["eqeqeq"],
+            errors: ["Disabling 'eqeqeq' is not allowed."],
+        },
+        {
             code: "//eslint-disable-line",
+            options: ["eqeqeq"],
+            errors: ["Disabling 'eqeqeq' is not allowed."],
+        },
+        {
+            code: "/*eslint-disable-line*/",
             options: ["eqeqeq"],
             errors: ["Disabling 'eqeqeq' is not allowed."],
         },
@@ -57,7 +69,17 @@ tester.run("no-restricted-disable", rule, {
             errors: ["Disabling 'eqeqeq' is not allowed."],
         },
         {
+            code: "/*eslint-disable-next-line eqeqeq*/",
+            options: ["eqeqeq"],
+            errors: ["Disabling 'eqeqeq' is not allowed."],
+        },
+        {
             code: "//eslint-disable-next-line",
+            options: ["eqeqeq"],
+            errors: ["Disabling 'eqeqeq' is not allowed."],
+        },
+        {
+            code: "/*eslint-disable-next-line*/",
             options: ["eqeqeq"],
             errors: ["Disabling 'eqeqeq' is not allowed."],
         },
@@ -78,7 +100,17 @@ tester.run("no-restricted-disable", rule, {
             errors: ["Disabling 'eqeqeq' is not allowed."],
         },
         {
+            code: "/*eslint-disable-line eqeqeq, no-undef, no-redeclare*/",
+            options: ["*", "!no-undef", "!no-redeclare"],
+            errors: ["Disabling 'eqeqeq' is not allowed."],
+        },
+        {
             code: "//eslint-disable-line",
+            options: ["*", "!no-undef", "!no-redeclare"],
+            errors: ["Disabling '*,!no-undef,!no-redeclare' is not allowed."],
+        },
+        {
+            code: "/*eslint-disable-line*/",
             options: ["*", "!no-undef", "!no-redeclare"],
             errors: ["Disabling '*,!no-undef,!no-redeclare' is not allowed."],
         },
@@ -88,7 +120,17 @@ tester.run("no-restricted-disable", rule, {
             errors: ["Disabling 'eqeqeq' is not allowed."],
         },
         {
+            code: "/*eslint-disable-next-line eqeqeq, no-undef, no-redeclare*/",
+            options: ["*", "!no-undef", "!no-redeclare"],
+            errors: ["Disabling 'eqeqeq' is not allowed."],
+        },
+        {
             code: "//eslint-disable-next-line",
+            options: ["*", "!no-undef", "!no-redeclare"],
+            errors: ["Disabling '*,!no-undef,!no-redeclare' is not allowed."],
+        },
+        {
+            code: "/*eslint-disable-next-line*/",
             options: ["*", "!no-undef", "!no-redeclare"],
             errors: ["Disabling '*,!no-undef,!no-redeclare' is not allowed."],
         },
@@ -111,6 +153,12 @@ tester.run("no-restricted-disable", rule, {
                 "Disabling 'foo/no-undef' is not allowed.",
                 "Disabling 'foo/no-redeclare' is not allowed.",
             ],
+        },
+        // -- description
+        {
+            code: "/*eslint-disable -- description*/",
+            options: ["eqeqeq"],
+            errors: ["Disabling 'eqeqeq' is not allowed."],
         },
     ],
 })
