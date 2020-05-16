@@ -1,0 +1,23 @@
+name: Website
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with: { node-version: 14.x }
+    - name: Install Packages
+      run: npm install
+    - name: Build Website
+      run: npm run -s docs:build
+    - name: Deploy Website
+      run: npm run -s docs:deploy -- $GITHUB_TOKEN
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

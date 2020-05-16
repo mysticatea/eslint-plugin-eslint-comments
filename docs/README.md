@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/eslint-plugin-eslint-comments.svg)](https://www.npmjs.com/package/eslint-plugin-eslint-comments)
 [![Downloads/month](https://img.shields.io/npm/dm/eslint-plugin-eslint-comments.svg)](http://www.npmtrends.com/eslint-plugin-eslint-comments)
-[![Build Status](https://dev.azure.com/mysticatea/eslint-plugin-eslint-comments/_apis/build/status/continuous-integration?branchName=master)](https://dev.azure.com/mysticatea/eslint-plugin-eslint-comments/_build/latest?definitionId=2&branchName=master)
+[![Build Status](https://github.com/mysticatea/eslint-plugin-eslint-comments/workflows/CI/badge.svg)](https://github.com/mysticatea/eslint-plugin-eslint-comments/actions)
 [![codecov](https://codecov.io/gh/mysticatea/eslint-plugin-eslint-comments/branch/master/graph/badge.svg)](https://codecov.io/gh/mysticatea/eslint-plugin-eslint-comments)
 [![Dependency Status](https://david-dm.org/mysticatea/eslint-plugin-eslint-comments.svg)](https://david-dm.org/mysticatea/eslint-plugin-eslint-comments)
 
