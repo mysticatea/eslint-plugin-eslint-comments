@@ -155,6 +155,15 @@ var a = b //eslint-disable-line`,
                         column: 11,
                         endLine: 2,
                         endColumn: 32,
+                        suggestions: [
+                            {
+                                desc: "Remove `eslint-disable` comment.",
+                                fix: {
+                                    range: [34, 55],
+                                    text: "",
+                                },
+                            },
+                        ],
                     },
                 ],
             },
@@ -169,6 +178,15 @@ var a = b //eslint-disable-line no-undef`,
                         column: 33,
                         endLine: 2,
                         endColumn: 41,
+                        suggestions: [
+                            {
+                                desc: "Remove `eslint-disable` comment.",
+                                fix: {
+                                    range: [34, 64],
+                                    text: "",
+                                },
+                            },
+                        ],
                     },
                 ],
             },
@@ -183,6 +201,7 @@ var a = b //eslint-disable-line no-undef,no-unused-vars`,
                         column: 33,
                         endLine: 2,
                         endColumn: 41,
+                        suggestions: [],
                     },
                     {
                         message:
@@ -191,6 +210,7 @@ var a = b //eslint-disable-line no-undef,no-unused-vars`,
                         column: 42,
                         endLine: 2,
                         endColumn: 56,
+                        suggestions: [],
                     },
                 ],
             },
@@ -206,6 +226,15 @@ var a = b`,
                         column: 1,
                         endLine: 2,
                         endColumn: 27,
+                        suggestions: [
+                            {
+                                desc: "Remove `eslint-disable` comment.",
+                                fix: {
+                                    range: [24, 50],
+                                    text: "",
+                                },
+                            },
+                        ],
                     },
                 ],
             },
@@ -221,6 +250,15 @@ var a = b`,
                         column: 28,
                         endLine: 2,
                         endColumn: 36,
+                        suggestions: [
+                            {
+                                desc: "Remove `eslint-disable` comment.",
+                                fix: {
+                                    range: [24, 59],
+                                    text: "",
+                                },
+                            },
+                        ],
                     },
                 ],
             },
@@ -236,6 +274,7 @@ var a = b`,
                         column: 28,
                         endLine: 2,
                         endColumn: 36,
+                        suggestions: [],
                     },
                     {
                         message:
@@ -244,6 +283,7 @@ var a = b`,
                         column: 37,
                         endLine: 2,
                         endColumn: 51,
+                        suggestions: [],
                     },
                 ],
             },
@@ -259,6 +299,15 @@ var a = b`,
                         column: 1,
                         endLine: 2,
                         endColumn: 19,
+                        suggestions: [
+                            {
+                                desc: "Remove `eslint-disable` comment.",
+                                fix: {
+                                    range: [24, 42],
+                                    text: "",
+                                },
+                            },
+                        ],
                     },
                 ],
             },
@@ -274,6 +323,15 @@ var a = b`,
                         column: 18,
                         endLine: 2,
                         endColumn: 26,
+                        suggestions: [
+                            {
+                                desc: "Remove `eslint-disable` comment.",
+                                fix: {
+                                    range: [24, 51],
+                                    text: "",
+                                },
+                            },
+                        ],
                     },
                 ],
             },
@@ -289,6 +347,7 @@ var a = b`,
                         column: 18,
                         endLine: 2,
                         endColumn: 26,
+                        suggestions: [],
                     },
                     {
                         message:
@@ -297,6 +356,7 @@ var a = b`,
                         column: 27,
                         endLine: 2,
                         endColumn: 41,
+                        suggestions: [],
                     },
                 ],
             },
@@ -313,6 +373,15 @@ var a = b
                         column: 1,
                         endLine: 2,
                         endColumn: 19,
+                        suggestions: [
+                            {
+                                desc: "Remove `eslint-disable` comment.",
+                                fix: {
+                                    range: [24, 42],
+                                    text: "",
+                                },
+                            },
+                        ],
                     },
                 ],
             },
@@ -329,6 +398,15 @@ var a = b
                         column: 18,
                         endLine: 2,
                         endColumn: 26,
+                        suggestions: [
+                            {
+                                desc: "Remove `eslint-disable` comment.",
+                                fix: {
+                                    range: [24, 51],
+                                    text: "",
+                                },
+                            },
+                        ],
                     },
                 ],
             },
@@ -345,6 +423,7 @@ var a = b
                         column: 18,
                         endLine: 2,
                         endColumn: 26,
+                        suggestions: [],
                     },
                     {
                         message:
@@ -353,6 +432,7 @@ var a = b
                         column: 27,
                         endLine: 2,
                         endColumn: 41,
+                        suggestions: [],
                     },
                 ],
             },
@@ -369,6 +449,15 @@ var a = b//eslint-disable-line no-undef`,
                         column: 1,
                         endLine: 2,
                         endColumn: 19,
+                        suggestions: [
+                            {
+                                desc: "Remove `eslint-disable` comment.",
+                                fix: {
+                                    range: [26, 44],
+                                    text: "",
+                                },
+                            },
+                        ],
                     },
                 ],
             },
@@ -385,6 +474,15 @@ var a = b//eslint-disable-line no-undef`,
                         column: 18,
                         endLine: 2,
                         endColumn: 26,
+                        suggestions: [
+                            {
+                                desc: "Remove `eslint-disable` comment.",
+                                fix: {
+                                    range: [26, 53],
+                                    text: "",
+                                },
+                            },
+                        ],
                     },
                 ],
             },
@@ -401,6 +499,7 @@ var a = b//eslint-disable-line no-undef`,
                         column: 18,
                         endLine: 2,
                         endColumn: 26,
+                        suggestions: [],
                     },
                 ],
             },
@@ -421,6 +520,7 @@ var a = b
                         column: 5,
                         endLine: 5,
                         endColumn: 11,
+                        suggestions: [],
                     },
                 ],
             },
@@ -435,6 +535,15 @@ var a = b
                         column: 47,
                         endLine: 1,
                         endColumn: 57,
+                        suggestions: [
+                            {
+                                desc: "Remove `eslint-disable` comment.",
+                                fix: {
+                                    range: [29, 58],
+                                    text: "",
+                                },
+                            },
+                        ],
                     },
                 ],
             },
@@ -453,6 +562,15 @@ var a = b //eslint-disable-line`,
                         column: 11,
                         endLine: 2,
                         endColumn: 32,
+                        suggestions: [
+                            {
+                                desc: "Remove `eslint-disable` comment.",
+                                fix: {
+                                    range: [34, 55],
+                                    text: "",
+                                },
+                            },
+                        ],
                     },
                 ],
                 reportUnusedDisableDirectives: true,
@@ -472,6 +590,15 @@ var a = b //eslint-disable-line no-undef`,
                         column: 33,
                         endLine: 2,
                         endColumn: 41,
+                        suggestions: [
+                            {
+                                desc: "Remove `eslint-disable` comment.",
+                                fix: {
+                                    range: [34, 64],
+                                    text: "",
+                                },
+                            },
+                        ],
                     },
                 ],
                 reportUnusedDisableDirectives: true,
@@ -497,7 +624,7 @@ var a = b //eslint-disable-line no-undef`,
                             const expected = errors[i]
 
                             for (const key of Object.keys(expected)) {
-                                assert.strictEqual(
+                                assert.deepStrictEqual(
                                     actual[key],
                                     expected[key],
                                     `'${key}' is not expected.`
