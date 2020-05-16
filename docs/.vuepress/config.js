@@ -48,10 +48,7 @@ module.exports = {
         module: {
             rules: [
                 {
-                    test: new RegExp(
-                        String.raw`internal[\\/]get-linters\.js$`,
-                        "u"
-                    ),
+                    test: /internal[\\/]get-linters\.js$/u,
                     loader: "string-replace-loader",
                     options: {
                         search: "[\\s\\S]+", // whole file.

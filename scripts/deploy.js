@@ -10,7 +10,7 @@ const DEPLOY_ROOT = path.resolve(__dirname, "..")
 /**
  * Execute a command.
  * @param {string} command The command to execute.
- * @returns {void}
+ * @returns {Promise<void>}
  */
 function exec(command) {
     console.log(`> ${command.replace(GH_TOKEN, "****")}`)
@@ -52,7 +52,7 @@ function exec(command) {
     }
 
     // Commit.
-    await exec('git config --global user.email "star.ctor@gmail.com"')
+    await exec('git config --global user.email "public@mysticatea.dev"')
     await exec('git config --global user.name "Toru Nagashima"')
     await exec("git add -A")
     let updated = false
