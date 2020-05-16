@@ -30,6 +30,7 @@ function exec(command) {
 //eslint-disable-next-line @mysticatea/node/no-unsupported-features/es-syntax
 ;(async () => {
     // Checkout.
+    await exec("git fetch origin gh-pages")
     await exec("git checkout gh-pages")
 
     // Clean.
