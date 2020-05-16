@@ -7,7 +7,6 @@
         :style="{ height }"
         class="eslint-playground"
         dark
-        fix
     />
 </template>
 
