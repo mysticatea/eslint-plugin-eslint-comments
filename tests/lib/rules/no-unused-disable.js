@@ -19,6 +19,8 @@ const fs = require("fs")
 const path = require("path")
 const spawn = require("cross-spawn")
 const rimraf = require("rimraf")
+const semver = require("semver")
+const eslintVersion = require("eslint/package").version
 
 /**
  * Run eslint CLI command with a given source code.
@@ -89,17 +91,32 @@ describe("no-unused-disable", () => {
             `/*eslint no-undef:error*/
 var a = b //eslint-disable-line`,
             `/*eslint no-undef:error*/
+var a = b /*eslint-disable-line*/`,
+            `/*eslint no-undef:error*/
 var a = b //eslint-disable-line no-undef`,
+            `/*eslint no-undef:error*/
+var a = b /*eslint-disable-line no-undef*/`,
             `/*eslint no-undef:error, no-unused-vars:error*/
 var a = b //eslint-disable-line no-undef,no-unused-vars`,
+            `/*eslint no-undef:error, no-unused-vars:error*/
+var a = b /*eslint-disable-line no-undef,no-unused-vars*/`,
             `/*eslint no-undef:error*/
 //eslint-disable-next-line
 var a = b`,
             `/*eslint no-undef:error*/
+/*eslint-disable-next-line*/
+var a = b`,
+            `/*eslint no-undef:error*/
 //eslint-disable-next-line no-undef
+var a = b`,
+            `/*eslint no-undef:error*/
+/*eslint-disable-next-line no-undef*/
 var a = b`,
             `/*eslint no-undef:error, no-unused-vars:error*/
 //eslint-disable-next-line no-undef,no-unused-vars
+var a = b`,
+            `/*eslint no-undef:error, no-unused-vars:error*/
+/*eslint-disable-next-line no-undef,no-unused-vars*/
 var a = b`,
             `/*eslint no-undef:error*/
 /*eslint-disable*/
@@ -133,6 +150,23 @@ function baz() {
     var foo = 3  //eslint-disable-line no-shadow
 }
 `,
+            `
+/*eslint no-shadow:error */
+var foo = 1
+function bar() {
+var foo = 2  /*eslint-disable-line no-shadow*/
+}
+function baz() {
+var foo = 3  /*eslint-disable-line no-shadow*/
+}
+`,
+            // -- description
+            ...(semver.satisfies(eslintVersion, ">=7.0.0")
+                ? [
+                      `/*eslint no-undef:error*/
+var a = b //eslint-disable-line -- description`,
+                  ]
+                : []),
         ]) {
             it(code, () =>
                 runESLint(code).then(messages => {
@@ -169,6 +203,20 @@ var a = b //eslint-disable-line`,
             },
             {
                 code: `/*eslint no-undef:off*/
+var a = b /*eslint-disable-line*/`,
+                errors: [
+                    {
+                        message:
+                            "ESLint rules are disabled but never reported.",
+                        line: 2,
+                        column: 11,
+                        endLine: 2,
+                        endColumn: 34,
+                    },
+                ],
+            },
+            {
+                code: `/*eslint no-undef:off*/
 var a = b //eslint-disable-line no-undef`,
                 errors: [
                     {
@@ -187,6 +235,20 @@ var a = b //eslint-disable-line no-undef`,
                                 },
                             },
                         ],
+                    },
+                ],
+            },
+            {
+                code: `/*eslint no-undef:off*/
+var a = b /*eslint-disable-line no-undef*/`,
+                errors: [
+                    {
+                        message:
+                            "'no-undef' rule is disabled but never reported.",
+                        line: 2,
+                        column: 33,
+                        endLine: 2,
+                        endColumn: 41,
                     },
                 ],
             },
@@ -211,6 +273,28 @@ var a = b //eslint-disable-line no-undef,no-unused-vars`,
                         endLine: 2,
                         endColumn: 56,
                         suggestions: [],
+                    },
+                ],
+            },
+            {
+                code: `/*eslint no-undef:off, no-unused-vars:off*/
+var a = b /*eslint-disable-line no-undef,no-unused-vars*/`,
+                errors: [
+                    {
+                        message:
+                            "'no-undef' rule is disabled but never reported.",
+                        line: 2,
+                        column: 33,
+                        endLine: 2,
+                        endColumn: 41,
+                    },
+                    {
+                        message:
+                            "'no-unused-vars' rule is disabled but never reported.",
+                        line: 2,
+                        column: 42,
+                        endLine: 2,
+                        endColumn: 56,
                     },
                 ],
             },
@@ -240,6 +324,21 @@ var a = b`,
             },
             {
                 code: `/*eslint no-undef:off*/
+/*eslint-disable-next-line*/
+var a = b`,
+                errors: [
+                    {
+                        message:
+                            "ESLint rules are disabled but never reported.",
+                        line: 2,
+                        column: 1,
+                        endLine: 2,
+                        endColumn: 29,
+                    },
+                ],
+            },
+            {
+                code: `/*eslint no-undef:off*/
 //eslint-disable-next-line no-undef
 var a = b`,
                 errors: [
@@ -259,6 +358,21 @@ var a = b`,
                                 },
                             },
                         ],
+                    },
+                ],
+            },
+            {
+                code: `/*eslint no-undef:off*/
+/*eslint-disable-next-line no-undef*/
+var a = b`,
+                errors: [
+                    {
+                        message:
+                            "'no-undef' rule is disabled but never reported.",
+                        line: 2,
+                        column: 28,
+                        endLine: 2,
+                        endColumn: 36,
                     },
                 ],
             },
@@ -284,6 +398,29 @@ var a = b`,
                         endLine: 2,
                         endColumn: 51,
                         suggestions: [],
+                    },
+                ],
+            },
+            {
+                code: `/*eslint no-undef:off, no-unused-vars:off*/
+/*eslint-disable-next-line no-undef,no-unused-vars*/
+var a = b`,
+                errors: [
+                    {
+                        message:
+                            "'no-undef' rule is disabled but never reported.",
+                        line: 2,
+                        column: 28,
+                        endLine: 2,
+                        endColumn: 36,
+                    },
+                    {
+                        message:
+                            "'no-unused-vars' rule is disabled but never reported.",
+                        line: 2,
+                        column: 37,
+                        endLine: 2,
+                        endColumn: 51,
                     },
                 ],
             },
@@ -463,6 +600,22 @@ var a = b//eslint-disable-line no-undef`,
             },
             {
                 code: `/*eslint no-undef:error*/
+/*eslint-disable*/
+/*eslint-enable*/
+var a = b/*eslint-disable-line no-undef*/`,
+                errors: [
+                    {
+                        message:
+                            "ESLint rules are disabled but never reported.",
+                        line: 2,
+                        column: 1,
+                        endLine: 2,
+                        endColumn: 19,
+                    },
+                ],
+            },
+            {
+                code: `/*eslint no-undef:error*/
 /*eslint-disable no-undef*/
 /*eslint-enable no-undef*/
 var a = b//eslint-disable-line no-undef`,
@@ -487,6 +640,22 @@ var a = b//eslint-disable-line no-undef`,
                 ],
             },
             {
+                code: `/*eslint no-undef:error*/
+/*eslint-disable no-undef*/
+/*eslint-enable no-undef*/
+var a = b/*eslint-disable-line no-undef*/`,
+                errors: [
+                    {
+                        message:
+                            "'no-undef' rule is disabled but never reported.",
+                        line: 2,
+                        column: 18,
+                        endLine: 2,
+                        endColumn: 26,
+                    },
+                ],
+            },
+            {
                 code: `/*eslint no-undef:error, no-unused-vars:error*/
 /*eslint-disable no-undef,no-unused-vars*/
 /*eslint-enable no-undef*/
@@ -500,6 +669,22 @@ var a = b//eslint-disable-line no-undef`,
                         endLine: 2,
                         endColumn: 26,
                         suggestions: [],
+                    },
+                ],
+            },
+            {
+                code: `/*eslint no-undef:error, no-unused-vars:error*/
+/*eslint-disable no-undef,no-unused-vars*/
+/*eslint-enable no-undef*/
+var a = b/*eslint-disable-line no-undef*/`,
+                errors: [
+                    {
+                        message:
+                            "'no-undef' rule is disabled but never reported.",
+                        line: 2,
+                        column: 18,
+                        endLine: 2,
+                        endColumn: 26,
                     },
                 ],
             },
@@ -577,6 +762,25 @@ var a = b //eslint-disable-line`,
             },
             {
                 code: `/*eslint no-undef:off*/
+var a = b /*eslint-disable-line*/`,
+                errors: [
+                    {
+                        message:
+                            "Unused eslint-disable directive (no problems were reported).",
+                    },
+                    {
+                        message:
+                            "ESLint rules are disabled but never reported.",
+                        line: 2,
+                        column: 11,
+                        endLine: 2,
+                        endColumn: 34,
+                    },
+                ],
+                reportUnusedDisableDirectives: true,
+            },
+            {
+                code: `/*eslint no-undef:off*/
 var a = b //eslint-disable-line no-undef`,
                 errors: [
                     {
@@ -603,6 +807,44 @@ var a = b //eslint-disable-line no-undef`,
                 ],
                 reportUnusedDisableDirectives: true,
             },
+            {
+                code: `/*eslint no-undef:off*/
+var a = b /*eslint-disable-line no-undef*/`,
+                errors: [
+                    {
+                        message:
+                            "Unused eslint-disable directive (no problems were reported from 'no-undef').",
+                    },
+                    {
+                        message:
+                            "'no-undef' rule is disabled but never reported.",
+                        line: 2,
+                        column: 33,
+                        endLine: 2,
+                        endColumn: 41,
+                    },
+                ],
+                reportUnusedDisableDirectives: true,
+            },
+            // -- description
+            ...(semver.satisfies(eslintVersion, ">=7.0.0")
+                ? [
+                      {
+                          code: `/*eslint no-undef:off*/
+var a = b //eslint-disable-line -- description`,
+                          errors: [
+                              {
+                                  message:
+                                      "ESLint rules are disabled but never reported.",
+                                  line: 2,
+                                  column: 11,
+                                  endLine: 2,
+                                  endColumn: 47,
+                              },
+                          ],
+                      },
+                  ]
+                : []),
 
             // Don't crash even if the source code has a parse error.
             {
