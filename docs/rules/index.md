@@ -7,6 +7,7 @@
 
 | Rule ID | Description |    |
 |:--------|:------------|:---|
+| [eslint-comments/<wbr>comment-style](./comment-style.md) | require `eslint-disable-line` and `eslint-disable-next-line` to be line comments | ✒️ |
 | [@eslint-community/eslint-comments/<wbr>disable-enable-pair](./disable-enable-pair.md) | require a `eslint-enable` comment for every `eslint-disable` comment | 🌟 |
 | [@eslint-community/eslint-comments/<wbr>no-aggregating-enable](./no-aggregating-enable.md) | disallow a `eslint-enable` comment for multiple `eslint-disable` comments | 🌟 |
 | [@eslint-community/eslint-comments/<wbr>no-duplicate-disable](./no-duplicate-disable.md) | disallow duplicate `eslint-disable` comments | 🌟 |
