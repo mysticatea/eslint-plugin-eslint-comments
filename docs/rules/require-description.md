@@ -33,6 +33,9 @@ Examples of :+1: **correct** code for this rule:
 /* eslint-env browser -- This script works in browser. */
 // eslint-disable-next-line -- Temporarily avoids the lint error problem. See issue XXX.
 /* global $ -- This script using jQuery. */
+
+// Temporarily avoids the lint error problem. See issue XXX.
+// eslint-disable-next-line
 " />
 
 ## Options
