@@ -31,6 +31,8 @@ tester.run("require-description", rule, {
         "/* eslint-disable-next-line -- description */",
         "// eslint-disable-line eqeqeq -- description",
         "// eslint-disable-next-line eqeqeq -- description",
+        `// some comment above
+// eslint-disable-next-line eqeqeq`,
         {
             code: "/* eslint */",
             options: [{ ignore: ["eslint"] }],
