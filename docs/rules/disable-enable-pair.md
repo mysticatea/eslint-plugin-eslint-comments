@@ -72,3 +72,9 @@ var foo = bar()
 var fizz = buzz()
 /*eslint-enable no-unused-vars */
 " />
+
+Note however that if your goal is to disable a rule for an entire file, it's better practice and more effective to use the following comment style instead (which actually disables the rule for the entire file instead of just starting after the `eslint-disable` comment):
+
+<eslint-playground type="good" code="/*eslint no-undef:"off" */
+var foo = bar()
+" />
