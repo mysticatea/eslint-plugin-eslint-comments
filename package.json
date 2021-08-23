@@ -17,14 +17,15 @@
     "ignore": "^5.0.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/eslint-parser": "^7.15.0",
     "@mysticatea/eslint-plugin": "^13.0.0",
     "@types/node": "^14.0.1",
     "@vuepress/plugin-pwa": "^1.0.1",
-    "babel-eslint": "^10.0.1",
     "codecov": "^3.3.0",
     "cross-spawn": "^6.0.5",
-    "eslint": "^7.0.0",
-    "eslint4b": "^7.0.0",
+    "eslint": "^8.0.0-0",
+    "eslint4b": "^7.32.0",
     "fs-extra": "^8.0.1",
     "mocha": "^6.1.4",
     "nyc": "^14.1.1",

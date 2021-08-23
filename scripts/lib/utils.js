@@ -6,8 +6,8 @@
 
 const fs = require("fs")
 const path = require("path")
-const { CLIEngine } = require("eslint")
-const linter = new CLIEngine({ fix: true })
+const { ESLint } = require("eslint")
+const linter = new ESLint({ fix: true })
 
 /**
  * Format a given text.
@@ -15,7 +15,7 @@ const linter = new CLIEngine({ fix: true })
  * @returns {string} The formatted text.
  */
 function format(text) {
-    const lintResult = linter.executeOnText(text)
+    const lintResult = linter.lintText(text)
     return lintResult.results[0].output || text
 }
 
