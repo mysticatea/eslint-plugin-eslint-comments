@@ -5,12 +5,11 @@
 "use strict"
 
 const semver = require("semver")
-const eslintVersion = require("eslint/package").version
-const RuleTester = require("eslint").RuleTester
+const { ESLint, RuleTester } = require("eslint")
 const rule = require("../../../lib/rules/require-description")
 const tester = new RuleTester()
 
-if (!semver.satisfies(eslintVersion, ">=7.0.0")) {
+if (!semver.satisfies(ESLint.version, ">=7.0.0")) {
     // This rule can only be used with ESLint v7.x or later.
     return
 }

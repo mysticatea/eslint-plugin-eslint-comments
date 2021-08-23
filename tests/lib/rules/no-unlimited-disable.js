@@ -5,8 +5,7 @@
 "use strict"
 
 const semver = require("semver")
-const eslintVersion = require("eslint/package").version
-const RuleTester = require("eslint").RuleTester
+const { RuleTester } = require("eslint")
 const rule = require("../../../lib/rules/no-unlimited-disable")
 const tester = new RuleTester()
 
@@ -95,7 +94,7 @@ tester.run("no-unlimited-disable", rule, {
             ],
         },
         // -- description
-        ...(semver.satisfies(eslintVersion, ">=7.0.0 || <6.0.0")
+        ...(semver.satisfies(ESLint.version, ">=7.0.0 || <6.0.0")
             ? [
                   {
                       code: "/*eslint-disable -- description */",

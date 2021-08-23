@@ -5,8 +5,7 @@
 "use strict"
 
 const semver = require("semver")
-const eslintVersion = require("eslint/package").version
-const { Linter, RuleTester } = require("eslint")
+const { ESLint, Linter, RuleTester } = require("eslint")
 const rule = require("../../../lib/rules/no-restricted-disable")
 const coreRules = new Linter().getRules()
 const tester = new RuleTester()
@@ -157,7 +156,7 @@ tester.run("no-restricted-disable", rule, {
             ],
         },
         // -- description
-        ...(semver.satisfies(eslintVersion, ">=7.0.0 || <6.0.0")
+        ...(semver.satisfies(ESLint.version, ">=7.0.0 || <6.0.0")
             ? [
                   {
                       code: "/*eslint-disable -- description*/",
