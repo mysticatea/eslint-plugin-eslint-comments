@@ -22,7 +22,7 @@ For example,
 
 Use [npm](https://www.npmjs.com/) or a compatible tool.
 
-```console
+```shell
 npm install --save-dev eslint eslint-plugin-eslint-comments
 ```
 
@@ -37,7 +37,7 @@ Configure your `.eslintrc.*` file.
 
 For example:
 
-```jsonc
+```json5
 {
     "extends": [
         "eslint:recommended",
