@@ -62,16 +62,30 @@ jobs:
       - name: Install Node.js ${{ matrix.node }}
         uses: actions/setup-node@v1
         with: { node-version: "${{ matrix.node }}" }
-      - name: Install npm 6.x
-        run: npm install --global npm@6.x
+      - name: Install Packages for Node v6
+        run: |
+          sudo npm i npm@6.x
+          ./node_modules/.bin/npm -v
+          ./node_modules/.bin/npm uninstall vuepress
+          ./node_modules/.bin/npm install
         if: ${{ matrix.node == '6.x' || matrix.node == '6.5.0' }}
+      - name: Uninstall Packages for Node v8
+        run: |
+          npm uninstall vuepress
+        if: ${{ matrix.node == '8.x' }}
       - name: Install Packages
         run: npm install
+        if: ${{ matrix.node != '6.x' && matrix.node != '6.5.0' }}
+      - name: Install ESLint ${{ matrix.eslint }} for Node v6
+        run: ./node_modules/.bin/npm install --no-save eslint@${{ matrix.eslint }}
+        if: ${{ matrix.node == '6.x' || matrix.node == '6.5.0' }}
       - name: Install ESLint ${{ matrix.eslint }}
         run: npm install --no-save eslint@${{ matrix.eslint }}
+        if: ${{ matrix.node != '6.x' && matrix.node != '6.5.0' }}
       - name: Test
         run: npm run -s test:ci
       - name: Send Coverage
         run: npm run -s codecov
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        if: ${{ matrix.node != '6.x' && matrix.node != '6.5.0' }}
