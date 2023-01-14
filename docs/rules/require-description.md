@@ -60,4 +60,4 @@ You can specify ignored directive-comments.
 
 - [ESLint RFCs - Description in directive comments]
 
-[ESLint RFCs - Description in directive comments]: https://github.com/eslint/rfcs/blob/master/designs/2019-description-in-directive-comments/README.md
+[ESLint RFCs - Description in directive comments]: https://github.com/eslint/rfcs/blob/main/designs/2019-description-in-directive-comments/README.md

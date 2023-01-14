@@ -18,7 +18,7 @@ module.exports = {
         repo: "mysticatea/eslint-plugin-eslint-comments",
         docsRepo: "mysticatea/eslint-plugin-eslint-comments",
         docsDir: "docs",
-        docsBranch: "master",
+        docsBranch: "main",
         editLinks: true,
         search: false,
 
