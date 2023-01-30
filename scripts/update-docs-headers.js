@@ -24,7 +24,7 @@ for (const rule of rules) {
         )
     } else if (rule.recommended) {
         headerLines.push(
-            '- 🌟 The `"extends": "plugin:eslint-comments/recommended"` property in a configuration file enables this rule.'
+            '- 🌟 The `"extends": "plugin:@eslint-community/eslint-comments/recommended"` property in a configuration file enables this rule.'
         )
     }
     if (rule.fixable) {

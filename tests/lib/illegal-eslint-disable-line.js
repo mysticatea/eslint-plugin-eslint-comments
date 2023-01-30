@@ -26,7 +26,7 @@ function runESLint(code) {
                 "test.js",
                 "--no-eslintrc",
                 "--plugin",
-                "eslint-comments",
+                "@eslint-community/eslint-comments",
                 "--format",
                 "json",
             ],
@@ -60,23 +60,28 @@ describe("multi-line eslint-disable-line comments", () => {
         const selfPath = path.resolve(__dirname, "../../")
         const pluginPath = path.resolve(
             __dirname,
-            "../../node_modules/eslint-plugin-eslint-comments"
+            "../../node_modules/@eslint-community/eslint-plugin-eslint-comments"
         )
 
         if (fs.existsSync(pluginPath)) {
             rimraf.sync(pluginPath)
+        } else {
+            fs.mkdirSync(
+                path.resolve(__dirname, "../../node_modules/@eslint-community")
+            )
         }
+
         fs.symlinkSync(selfPath, pluginPath, "junction")
     })
 
-    describe("`eslint-comments/*` rules are valid", () => {
+    describe("`@eslint-community/eslint-comments/*` rules are valid", () => {
         for (const code of [
-            `/* eslint eslint-comments/no-use:[error, {allow: ['eslint']}] */
+            `/* eslint @eslint-community/eslint-comments/no-use:[error, {allow: ['eslint']}] */
 /* eslint-disable-line
 */
 /* eslint-disable-next-line
 */`,
-            `/* eslint eslint-comments/no-duplicate-disable:error */
+            `/* eslint @eslint-community/eslint-comments/no-duplicate-disable:error */
 /*eslint-disable no-undef*/
 /*eslint-disable-line
 no-undef*/

@@ -1,5 +1,5 @@
 {
-  "name": "eslint-plugin-eslint-comments",
+  "name": "@eslint-community/eslint-plugin-eslint-comments",
   "version": "3.2.0",
   "description": "Additional ESLint rules for ESLint directive comments.",
   "engines": {
@@ -54,7 +54,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mysticatea/eslint-plugin-eslint-comments.git"
+    "url": "https://github.com/eslint-community/eslint-plugin-eslint-comments"
   },
   "keywords": [
     "eslint",
@@ -76,8 +76,7 @@
   "author": "Toru Nagashima",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mysticatea/eslint-plugin-eslint-comments/issues"
+    "url": "https://github.com/eslint-community/eslint-plugin-eslint-comments/issues"
   },
-  "homepage": "https://github.com/mysticatea/eslint-plugin-eslint-comments#readme",
-  "funding": "https://github.com/sponsors/mysticatea"
+  "homepage": "https://github.com/eslint-community/eslint-plugin-eslint-comments#readme"
 }

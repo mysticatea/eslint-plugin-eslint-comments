@@ -6,7 +6,7 @@ require("../../scripts/update-docs-index")
 
 module.exports = {
     base: "/eslint-plugin-eslint-comments/",
-    title: "eslint-plugin-eslint-comments",
+    title: "@eslint-community/eslint-plugin-eslint-comments",
     description: "Additional ESLint rules for ESLint directive comments.",
     evergreen: true,
 
@@ -15,8 +15,8 @@ module.exports = {
     },
 
     themeConfig: {
-        repo: "mysticatea/eslint-plugin-eslint-comments",
-        docsRepo: "mysticatea/eslint-plugin-eslint-comments",
+        repo: "eslint-community/eslint-plugin-eslint-comments",
+        docsRepo: "eslint-community/eslint-plugin-eslint-comments",
         docsDir: "docs",
         docsBranch: "main",
         editLinks: true,
@@ -26,7 +26,7 @@ module.exports = {
             {
                 text: "Changelog",
                 link:
-                    "https://github.com/mysticatea/eslint-plugin-eslint-comments/releases",
+                    "https://github.com/eslint-community/eslint-plugin-eslint-comments/releases",
             },
         ],
 

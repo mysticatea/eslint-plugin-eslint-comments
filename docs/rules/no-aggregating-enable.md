@@ -1,8 +1,8 @@
-# eslint-comments/no-aggregating-enable
+# @eslint-community/eslint-comments/no-aggregating-enable
 
 > disallow a `eslint-enable` comment for multiple `eslint-disable` comments
 
-- 🌟 The `"extends": "plugin:eslint-comments/recommended"` property in a configuration file enables this rule.
+- 🌟 The `"extends": "plugin:@eslint-community/eslint-comments/recommended"` property in a configuration file enables this rule.
 
 `eslint-enable` directive-comments can enable rules which are disabled by different `eslint-disable` directive-comments.
 It can enable a rule unintentionally.
@@ -21,7 +21,7 @@ This rule warns `eslint-enable` directive-comments which enable rules for multip
 
 :-1: Examples of **incorrect** code for this rule:
 
-<eslint-playground type="bad" code="/*eslint eslint-comments/no-aggregating-enable: error*/
+<eslint-playground type="bad" code="/*eslint @eslint-community/eslint-comments/no-aggregating-enable: error*/
 
 /*eslint-disable no-undef */
 f()
@@ -30,7 +30,7 @@ var a
 /*eslint-enable */
 " />
 
-<eslint-playground type="bad" code="/*eslint eslint-comments/no-aggregating-enable: error*/
+<eslint-playground type="bad" code="/*eslint @eslint-community/eslint-comments/no-aggregating-enable: error*/
 
 /*eslint-disable no-undef */
 f()
@@ -41,7 +41,7 @@ var a
 
 :+1: Examples of **correct** code for this rule:
 
-<eslint-playground type="good" code="/*eslint eslint-comments/no-aggregating-enable: error*/
+<eslint-playground type="good" code="/*eslint @eslint-community/eslint-comments/no-aggregating-enable: error*/
 
 /*eslint-disable no-undef */
 f()

@@ -1,4 +1,4 @@
-# eslint-comments/no-unused-disable
+# @eslint-community/eslint-comments/no-unused-disable
 
 > disallow unused `eslint-disable` comments
 
@@ -11,12 +11,12 @@ This rule warns unnecessary `eslint-disable` directive-comments.
 
 Examples of :-1: **incorrect** code for this rule:
 
-<eslint-playground type="bad" reportUnusedDisable code="/*eslint eslint-comments/no-unused-disable: error, eqeqeq: error, no-undef: error */
+<eslint-playground type="bad" reportUnusedDisable code="/*eslint @eslint-community/eslint-comments/no-unused-disable: error, eqeqeq: error, no-undef: error */
 
 var foo = bar() //eslint-disable-line no-undef,eqeqeq
 " />
 
-<eslint-playground type="bad" reportUnusedDisable code="/*eslint eslint-comments/no-unused-disable: error, eqeqeq: error, no-undef: error */
+<eslint-playground type="bad" reportUnusedDisable code="/*eslint @eslint-community/eslint-comments/no-unused-disable: error, eqeqeq: error, no-undef: error */
 /*globals doSomething */
 
 doSomething() //eslint-disable-line
@@ -24,12 +24,12 @@ doSomething() //eslint-disable-line
 
 Examples of :+1: **correct** code for this rule:
 
-<eslint-playground type="good" reportUnusedDisable code="/*eslint eslint-comments/no-unused-disable: error, eqeqeq: error, no-undef: error */
+<eslint-playground type="good" reportUnusedDisable code="/*eslint @eslint-community/eslint-comments/no-unused-disable: error, eqeqeq: error, no-undef: error */
 
 var foo = bar() //eslint-disable-line no-undef
 " />
 
-<eslint-playground type="good" reportUnusedDisable code="/*eslint eslint-comments/no-unused-disable: error, eqeqeq: error, no-undef: error */
+<eslint-playground type="good" reportUnusedDisable code="/*eslint @eslint-community/eslint-comments/no-unused-disable: error, eqeqeq: error, no-undef: error */
 /*globals doSomething */
 
 doSomething()
@@ -56,7 +56,7 @@ When the rule is loaded, it searches `eslint` module from `require.cache` API an
 
 The overridden `Linter.prototype.verify` method does the following steps:
 
-1. If `config.rules["eslint-comments/no-unused-disable"]` is not enabled, it calls `super.verify` and returns the result as is.
+1. If `config.rules["@eslint-community/eslint-comments/no-unused-disable"]` is not enabled, it calls `super.verify` and returns the result as is.
 2. Otherwise, it calls `super.verify` with `reportUnusedDisableDirectives` option.
-3. It converts the result of `super.verify` as from `reportUnusedDisableDirectives` errors to `eslint-comments/no-unused-disable` errors.
+3. It converts the result of `super.verify` as from `reportUnusedDisableDirectives` errors to `@eslint-community/eslint-comments/no-unused-disable` errors.
 4. It returns the converted result.

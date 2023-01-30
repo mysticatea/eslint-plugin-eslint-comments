@@ -1,4 +1,4 @@
-# eslint-comments/no-use
+# @eslint-community/eslint-comments/no-use
 
 > disallow ESLint directive-comments
 
@@ -9,7 +9,7 @@ This rule disallows a use of directive-comments.
 
 Examples of :-1: **incorrect** code for this rule:
 
-<eslint-playground type="bad" code="/*eslint eslint-comments/no-use: error */
+<eslint-playground type="bad" code="/*eslint @eslint-community/eslint-comments/no-use: error */
 
 /* eslint no-undef: off */
 /* eslint-env browser */
@@ -28,7 +28,7 @@ You can specify allowed directive-comments.
 
 ```json
 {
-    "eslint-comments/no-use": ["error", {"allow": []}]
+    "@eslint-community/eslint-comments/no-use": ["error", {"allow": []}]
 }
 ```
 
@@ -48,7 +48,7 @@ You can specify allowed directive-comments.
 This rule cannot prevent the following case:
 
 ```js
-/* eslint eslint-comments/no-use: off */
+/* eslint @eslint-community/eslint-comments/no-use: off */
 ```
 
 Because ESLint addresses the directive-comment before parsing.

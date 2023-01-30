@@ -67,7 +67,7 @@ function exec(command) {
     // Push.
     if (updated) {
         await exec(
-            `git push https://mysticatea:${GH_TOKEN}@github.com/mysticatea/eslint-plugin-eslint-comments.git gh-pages:gh-pages`
+            `git push https://mysticatea:${GH_TOKEN}@github.com/eslint-community/eslint-plugin-eslint-comments.git gh-pages:gh-pages`
         )
     }
 })().catch(error => {

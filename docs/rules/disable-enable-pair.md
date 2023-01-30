@@ -1,8 +1,8 @@
-# eslint-comments/disable-enable-pair
+# @eslint-community/eslint-comments/disable-enable-pair
 
 > require a `eslint-enable` comment for every `eslint-disable` comment
 
-- 🌟 The `"extends": "plugin:eslint-comments/recommended"` property in a configuration file enables this rule.
+- 🌟 The `"extends": "plugin:@eslint-community/eslint-comments/recommended"` property in a configuration file enables this rule.
 
 `eslint-disable` directive-comments disable ESLint rules in all lines preceded by the comment.
 If you forget `eslint-enable` directive-comment, you may overlook ESLint warnings unintentionally.
@@ -13,13 +13,13 @@ This rule warns `eslint-disable` directive-comments if the `eslint-enable` direc
 
 Examples of :-1: **incorrect** code for this rule:
 
-<eslint-playground type="bad" code="/*eslint eslint-comments/disable-enable-pair: error */
+<eslint-playground type="bad" code="/*eslint @eslint-community/eslint-comments/disable-enable-pair: error */
 
 /*eslint-disable no-undef, no-unused-vars */
 var foo = bar()
 " />
 
-<eslint-playground type="bad" code="/*eslint eslint-comments/disable-enable-pair: error */
+<eslint-playground type="bad" code="/*eslint @eslint-community/eslint-comments/disable-enable-pair: error */
 
 /*eslint-disable no-undef, no-unused-vars */
 var foo = bar()
@@ -28,14 +28,14 @@ var foo = bar()
 
 Examples of :+1: **correct** code for this rule:
 
-<eslint-playground type="good" code="/*eslint eslint-comments/disable-enable-pair: error */
+<eslint-playground type="good" code="/*eslint @eslint-community/eslint-comments/disable-enable-pair: error */
 
 /*eslint-disable no-undef, no-unused-vars */
 var foo = bar()
 /*eslint-enable no-undef, no-unused-vars */
 " />
 
-<eslint-playground type="good" code="/*eslint eslint-comments/disable-enable-pair: error */
+<eslint-playground type="good" code="/*eslint @eslint-community/eslint-comments/disable-enable-pair: error */
 
 /*eslint-disable no-undef, no-unused-vars */
 var foo = bar()
@@ -48,13 +48,13 @@ The `allowWholeFile` option lets you allow disabling rules for the entire file w
 
 ```json
 {
-    "eslint-comments/disable-enable-pair": ["error", {"allowWholeFile": true}]
+    "@eslint-community/eslint-comments/disable-enable-pair": ["error", {"allowWholeFile": true}]
 }
 ```
 
 Examples of :-1: **incorrect** code for this rule:
 
-<eslint-playground type="bad" code="/*eslint eslint-comments/disable-enable-pair: [error, {allowWholeFile: true}] */
+<eslint-playground type="bad" code="/*eslint @eslint-community/eslint-comments/disable-enable-pair: [error, {allowWholeFile: true}] */
 
 /*eslint-disable no-undef */
 var foo = bar()
@@ -64,7 +64,7 @@ var fizz = buzz()
 
 Examples of :+1: **correct** code for this rule:
 
-<eslint-playground type="good" code="/*eslint eslint-comments/disable-enable-pair: [error, {allowWholeFile: true}] */
+<eslint-playground type="good" code="/*eslint @eslint-community/eslint-comments/disable-enable-pair: [error, {allowWholeFile: true}] */
 
 /*eslint-disable no-undef */
 var foo = bar()

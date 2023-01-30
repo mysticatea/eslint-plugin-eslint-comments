@@ -1,10 +1,9 @@
-# eslint-plugin-eslint-comments
+# @eslint-community/eslint-plugin-eslint-comments
 
-[![npm version](https://img.shields.io/npm/v/eslint-plugin-eslint-comments.svg)](https://www.npmjs.com/package/eslint-plugin-eslint-comments)
-[![Downloads/month](https://img.shields.io/npm/dm/eslint-plugin-eslint-comments.svg)](http://www.npmtrends.com/eslint-plugin-eslint-comments)
-[![Build Status](https://github.com/mysticatea/eslint-plugin-eslint-comments/workflows/CI/badge.svg)](https://github.com/mysticatea/eslint-plugin-eslint-comments/actions)
-[![codecov](https://codecov.io/gh/mysticatea/eslint-plugin-eslint-comments/branch/main/graph/badge.svg)](https://codecov.io/gh/mysticatea/eslint-plugin-eslint-comments)
-[![Dependency Status](https://david-dm.org/mysticatea/eslint-plugin-eslint-comments.svg)](https://david-dm.org/mysticatea/eslint-plugin-eslint-comments)
+[![npm version](https://img.shields.io/npm/v/@eslint-community/eslint-plugin-eslint-comments.svg)](https://www.npmjs.com/package/@eslint-community/eslint-plugin-eslint-comments)
+[![Downloads/month](https://img.shields.io/npm/dm/@eslint-community/eslint-plugin-eslint-comments.svg)](http://www.npmtrends.com/@eslint-community/eslint-plugin-eslint-comments)
+[![Build Status](https://github.com/eslint-community/eslint-plugin-eslint-comments/workflows/CI/badge.svg)](https://github.com/eslint-community/eslint-plugin-eslint-comments/actions)
+[![codecov](https://codecov.io/gh/eslint-community/eslint-plugin-eslint-comments/branch/main/graph/badge.svg)](https://codecov.io/gh/eslint-community/eslint-plugin-eslint-comments)
 
 Additional ESLint rules for ESLint directive comments (e.g. `//eslint-disable-line`).
 
@@ -14,11 +13,11 @@ Additional ESLint rules for ESLint directive comments (e.g. `//eslint-disable-li
 
 ## 🚥 Semantic Versioning Policy
 
-`eslint-plugin-eslint-comments` follows [semantic versioning](http://semver.org/) and [ESLint's Semantic Versioning Policy](https://github.com/eslint/eslint#semantic-versioning-policy).
+`@eslint-community/eslint-plugin-eslint-comments` follows [semantic versioning](http://semver.org/) and [ESLint's Semantic Versioning Policy](https://github.com/eslint/eslint#semantic-versioning-policy).
 
 ## 📰 Changelog
 
-- [GitHub Releases](https://github.com/mysticatea/eslint-plugin-eslint-comments/releases)
+- [GitHub Releases](https://github.com/eslint-community/eslint-plugin-eslint-comments/releases)
 
 ## 🍻 Contributing
 

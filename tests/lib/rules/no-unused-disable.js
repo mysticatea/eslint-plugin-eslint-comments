@@ -38,9 +38,9 @@ function runESLint(code, reportUnusedDisableDirectives = false) {
                 "test.js",
                 "--no-eslintrc",
                 "--plugin",
-                "eslint-comments",
+                "@eslint-community/eslint-comments",
                 "--rule",
-                "eslint-comments/no-unused-disable:error",
+                "@eslint-community/eslint-comments/no-unused-disable:error",
                 "--format",
                 "json",
                 ...(reportUnusedDisableDirectives
@@ -77,12 +77,20 @@ describe("no-unused-disable", () => {
         const selfPath = path.resolve(__dirname, "../../../")
         const pluginPath = path.resolve(
             __dirname,
-            "../../../node_modules/eslint-plugin-eslint-comments"
+            "../../../node_modules/@eslint-community/eslint-plugin-eslint-comments"
         )
 
         if (fs.existsSync(pluginPath)) {
             rimraf.sync(pluginPath)
+        } else {
+            fs.mkdirSync(
+                path.resolve(
+                    __dirname,
+                    "../../../node_modules/@eslint-community"
+                )
+            )
         }
+
         fs.symlinkSync(selfPath, pluginPath, "junction")
     })
 

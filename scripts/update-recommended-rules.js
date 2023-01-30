@@ -16,7 +16,7 @@ fs.writeFileSync(
 "use strict"
 
 module.exports = {
-    plugins: ["eslint-comments"],
+    plugins: ["@eslint-community/eslint-comments"],
     rules: {
         ${rules
             .filter(rule => rule.recommended)

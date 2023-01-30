@@ -12,7 +12,7 @@
 
 <script>
 // https://github.com/vuejs/vuepress/issues/451
-import EslintEditor from "../../../node_modules/vue-eslint-editor"
+import EslintEditor from "../../../node_modules/vue-eslint-editor.vue"
 import { rules } from "../../../"
 
 export default {
@@ -79,7 +79,9 @@ export default {
             }
 
             if (this.reportUnusedDisable) {
-                config.rules["eslint-comments/no-unused-disable"] = "error"
+                config.rules[
+                    "@eslint-community/eslint-comments/no-unused-disable"
+                ] = "error"
             }
 
             return config
@@ -88,7 +90,7 @@ export default {
         height() {
             const numLines = this.code.split("\n").length
             return `${numLines * 20 + 10}px`
-        }
+        },
     },
 
     async mounted() {
@@ -97,7 +99,10 @@ export default {
         const linter = (this.linter = new Linter())
 
         for (const ruleId of Object.keys(rules)) {
-            linter.defineRule(`eslint-comments/${ruleId}`, rules[ruleId])
+            linter.defineRule(
+                `@eslint-community/eslint-comments/${ruleId}`,
+                rules[ruleId]
+            )
         }
     },
 }
