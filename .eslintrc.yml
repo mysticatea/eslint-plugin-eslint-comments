@@ -11,4 +11,4 @@ overrides:
     rules:
       "@mysticatea/eslint-plugin/require-meta-docs-url":
         - error
-        - pattern: "https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/{{name}}.html"
+        - pattern: "https://eslint-community.github.io/eslint-plugin-eslint-comments/rules/{{name}}.html"

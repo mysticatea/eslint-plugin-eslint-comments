@@ -9,7 +9,7 @@ Additional ESLint rules for ESLint directive comments (e.g. `//eslint-disable-li
 
 ## 📖 Usage
 
-- [Documentation](https://mysticatea.github.io/eslint-plugin-eslint-comments)
+- [Documentation](https://eslint-community.github.io/eslint-plugin-eslint-comments)
 
 ## 🚥 Semantic Versioning Policy
 
