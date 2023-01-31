@@ -1,91 +1,112 @@
 name: CI
 on:
   push:
-    branches: [main, gha]
-  pull_request:
     branches: [main]
+  pull_request:
   schedule:
     - cron: 0 0 * * 0
 
 jobs:
   lint:
-    name: Lint
+    name: ⬣ Lint
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Install Node.js
-        uses: actions/setup-node@v1
-        with: { node-version: 14.x }
-      - name: Install Packages
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.11.0
+
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
+
+      - name: ⎔ Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 📥 Install dependencies
         run: npm install
-      - name: Lint
-        run: npm run -s lint
+
+      - name: ▶️ Run lint script
+        run: npm run lint
 
   test:
-    name: Test
+    name:
+      🧪 Test (Node@${{ matrix.node }} - ESLint@${{ matrix.eslint }} - ${{
+      matrix.os }})
     strategy:
       matrix:
-        eslint: [7.x]
-        node: [14.x]
+        eslint: [7]
+        node: [10, 12.0.0, 12, 14.0.0, 14, 16.0.0, 16, 18.0.0, 18]
         os: [ubuntu-latest]
         include:
           # On other platforms
-          - eslint: 7.x
-            node: 14.x
-            os: windows-latest
-          - eslint: 7.x
-            node: 14.x
-            os: macos-latest
+          - os: windows-latest
+            eslint: 7
+            node: 18
+          - os: macos-latest
+            eslint: 7
+            node: 18
+          # On old ESLint versions
+          - eslint: 6
+            node: 18
+            os: ubuntu-latest
+          - eslint: 5
+            node: 18
+            os: ubuntu-latest
+          - eslint: 4
+            node: 18
+            os: ubuntu-latest
           # On old Node.js versions
-          - eslint: 7.x
-            node: 12.x
+          - eslint: 6
+            node: 8
             os: ubuntu-latest
-          - eslint: 7.x
-            node: 10.x
-            os: ubuntu-latest
-          - eslint: 6.x
-            node: 8.x
-            os: ubuntu-latest
-          - eslint: 5.x
-            node: 6.x
+          - eslint: 5
+            node: 6
             os: ubuntu-latest
           # On the minimum supported ESLint/Node.js version
-          - eslint: "4.19.1"
-            node: "6.5.0"
+          - eslint: 4.19.1
+            node: 6.5.0
             os: ubuntu-latest
-
     runs-on: ${{ matrix.os }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Install Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v1
-        with: { node-version: "${{ matrix.node }}" }
-      - name: Install Packages for Node v6
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.11.0
+
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
+
+      - name: ⎔ Setup Node v${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+
+      # - name: 📥 Install dependencies
+      #   run: npm install
+      - name: 📥 Install Packages for Node v6
         run: |
           sudo npm i npm@6.x
           ./node_modules/.bin/npm -v
           ./node_modules/.bin/npm uninstall vuepress
           ./node_modules/.bin/npm install
-        if: ${{ matrix.node == '6.x' || matrix.node == '6.5.0' }}
-      - name: Uninstall Packages for Node v8
+        if: ${{ matrix.node == '6.5.0' || matrix.node == '6' }}
+      - name: 📥 Uninstall Packages for Node v8
         run: |
           npm uninstall vuepress
-        if: ${{ matrix.node == '8.x' }}
-      - name: Install Packages
-        run: npm install
-        if: ${{ matrix.node != '6.x' && matrix.node != '6.5.0' }}
-      - name: Install ESLint ${{ matrix.eslint }} for Node v6
-        run: ./node_modules/.bin/npm install --no-save eslint@${{ matrix.eslint }}
-        if: ${{ matrix.node == '6.x' || matrix.node == '6.5.0' }}
-      - name: Install ESLint ${{ matrix.eslint }}
-        run: npm install --no-save eslint@${{ matrix.eslint }}
-        if: ${{ matrix.node != '6.x' && matrix.node != '6.5.0' }}
-      - name: Test
-        run: npm run -s test:ci
-      - name: Send Coverage
-        run: npm run -s codecov
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-        if: ${{ matrix.node != '6.x' && matrix.node != '6.5.0' }}
+        if: ${{ matrix.node == '8.O.O' || matrix.node == '8' }}
+      - name: 📥 Install Packages
+        run: npm install --legacy-peer-deps
+        if: ${{ matrix.node != '6.5.0' && matrix.node != '6' }}
+
+      # - name: 📥 Install ESLint v${{ matrix.eslint }}
+      #   run: npm install --save-dev eslint@${{ matrix.eslint }}
+      - name: 📥 Install ESLint v${{ matrix.eslint }} for Node v6
+        run: ./node_modules/.bin/npm install --save-dev eslint@${{ matrix.eslint }}
+        if: ${{ matrix.node == '6.5.0' || matrix.node == '6' }}
+      - name: 📥 Install ESLint v${{ matrix.eslint }}
+        run: npm install --save-dev eslint@${{ matrix.eslint }}
+        if: ${{ matrix.node != '6.5.0' && matrix.node != '6' }}
+
+      - name: ▶️ Run test script
+        run: npm run test
+
+      - name: ⬆️ Upload coverage report
+        uses: codecov/codecov-action@v3
