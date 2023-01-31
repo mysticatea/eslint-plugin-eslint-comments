@@ -3,7 +3,7 @@
   "version": "0.0.0-semantically-released",
   "description": "Additional ESLint rules for ESLint directive comments.",
   "engines": {
-    "node": ">=6.5.0"
+    "node": "^12.22.0 || ^14.17.0 || >=16.0.0"
   },
   "main": "index.js",
   "files": [
@@ -41,7 +41,6 @@
     "clean": "rimraf .nyc_output coverage docs/.vuepress/dist",
     "docs:build": "vuepress build docs",
     "docs:watch": "vuepress dev docs",
-    "docs:deploy": "node scripts/deploy",
     "lint": "eslint lib scripts tests",
     "test": "nyc mocha \"tests/lib/**/*.js\" --reporter dot --timeout 8000",
     "coverage": "nyc report --reporter lcov && opener coverage/lcov-report/index.html",
