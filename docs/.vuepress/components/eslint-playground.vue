@@ -12,7 +12,7 @@
 
 <script>
 // https://github.com/vuejs/vuepress/issues/451
-import EslintEditor from "../../../node_modules/vue-eslint-editor.vue"
+import EslintEditor from "../../../node_modules/vue-eslint-editor/dist/index.vue"
 import { rules } from "../../../"
 
 export default {
