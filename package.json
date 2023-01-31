@@ -14,25 +14,25 @@
   },
   "dependencies": {
     "escape-string-regexp": "^1.0.5",
-    "ignore": "^5.0.5"
+    "ignore": "^5.2.4"
   },
   "devDependencies": {
     "@mysticatea/eslint-plugin": "^13.0.0",
-    "@types/node": "^14.0.1",
-    "@vuepress/plugin-pwa": "^1.0.1",
+    "@types/node": "^14.18.36",
+    "@vuepress/plugin-pwa": "^1.9.8",
     "babel-eslint": "^10.0.1",
     "cross-spawn": "^6.0.5",
-    "eslint": "^7.0.0",
-    "eslint4b": "^7.0.0",
-    "fs-extra": "^8.0.1",
-    "mocha": "^6.1.4",
+    "eslint": "^7.32.0",
+    "eslint4b": "^7.32.0",
+    "fs-extra": "^8.1.0",
+    "mocha": "^6.2.3",
     "nyc": "^14.1.1",
-    "opener": "^1.4.3",
-    "rimraf": "^2.6.2",
-    "semver": "^7.3.2",
-    "string-replace-loader": "^2.1.1",
+    "opener": "^1.5.2",
+    "rimraf": "^2.7.1",
+    "semver": "^7.3.8",
+    "string-replace-loader": "^2.3.0",
     "vue-eslint-editor": "^1.1.0",
-    "vuepress": "^1.0.1"
+    "vuepress": "^1.9.8"
   },
   "scripts": {
     "preversion": "npm test",
