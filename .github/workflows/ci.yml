@@ -57,14 +57,8 @@ jobs:
           - eslint: 6
             node: 18
             os: ubuntu-latest
-          - eslint: 5
-            node: 18
-            os: ubuntu-latest
-          - eslint: 4
-            node: 18
-            os: ubuntu-latest
           # On the minimum supported ESLint/Node.js version
-          - eslint: 4.19.1
+          - eslint: 6.0.0
             node: 12.22.0
             os: ubuntu-latest
     runs-on: ${{ matrix.os }}

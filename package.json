@@ -10,7 +10,7 @@
     "lib"
   ],
   "peerDependencies": {
-    "eslint": ">=4.19.1"
+    "eslint": "^6.0.0 || ^7.0.0"
   },
   "dependencies": {
     "escape-string-regexp": "^1.0.5",

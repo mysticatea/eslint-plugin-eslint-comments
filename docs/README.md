@@ -27,7 +27,7 @@ npm install --save-dev eslint @eslint-community/eslint-plugin-eslint-comments
 
 ::: tip Requirements
 - Node.js `^12.22.0 || ^14.17.0 || >=16.0.0`
-- ESLint `4.19.1` or newer.
+- ESLint `^6.0.0 || ^7.0.0`
 :::
 
 ## 📖 Usage
