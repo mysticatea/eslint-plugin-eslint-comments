@@ -41,19 +41,23 @@ jobs:
       🧪 Test (Node@${{ matrix.node }} - ESLint@${{ matrix.eslint }} - ${{
       matrix.os }})
     strategy:
+      fail-fast: false
       matrix:
-        eslint: [7]
+        eslint: [8]
         node: [12.22.0, 12, 14.17.0, 14, 16.0.0, 16, 18.0.0, 18, 20]
         os: [ubuntu-latest]
         include:
           # On other platforms
           - os: windows-latest
-            eslint: 7
+            eslint: 8
             node: 18
           - os: macos-latest
-            eslint: 7
+            eslint: 8
             node: 18
           # On old ESLint versions
+          - eslint: 7
+            node: 18
+            os: ubuntu-latest
           - eslint: 6
             node: 18
             os: ubuntu-latest
