@@ -8,8 +8,6 @@ const fs = require("fs")
 const path = require("path")
 const spawn = require("cross-spawn")
 const rimraf = require("rimraf")
-const semver = require("semver")
-const eslintVersion = require("eslint/package").version
 
 /**
  * Run eslint CLI command with a given source code.
@@ -89,9 +87,7 @@ no-undef*/
         ]) {
             it(code, () =>
                 runESLint(code).then(messages => {
-                    if (semver.satisfies(eslintVersion, ">=5.0.0")) {
-                        assert.strictEqual(messages.length > 0, true)
-                    }
+                    assert.strictEqual(messages.length > 0, true)
                     const normalMessages = messages.filter(
                         message => message.ruleId != null
                     )

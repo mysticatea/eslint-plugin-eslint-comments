@@ -123,7 +123,7 @@ tester.run("no-duplicate-disable", rule, {
             ],
         },
         // -- description
-        ...(semver.satisfies(eslintVersion, ">=7.0.0 || <6.0.0")
+        ...(semver.satisfies(eslintVersion, ">=7.0.0")
             ? [
                   {
                       code: `
