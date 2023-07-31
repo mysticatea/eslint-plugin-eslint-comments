@@ -20,7 +20,7 @@ const path = require("path")
 const spawn = require("cross-spawn")
 const rimraf = require("rimraf")
 const semver = require("semver")
-const eslintVersion = require("eslint/package").version
+const { Linter } = require("eslint")
 
 /**
  * Run eslint CLI command with a given source code.
@@ -169,7 +169,7 @@ var foo = 3  /*eslint-disable-line no-shadow*/
 }
 `,
             // -- description
-            ...(semver.satisfies(eslintVersion, ">=7.0.0")
+            ...(semver.satisfies(Linter.version, ">=7.0.0")
                 ? [
                       `/*eslint no-undef:error*/
 var a = b //eslint-disable-line -- description`,
@@ -835,7 +835,7 @@ var a = b /*eslint-disable-line no-undef*/`,
                 reportUnusedDisableDirectives: true,
             },
             // -- description
-            ...(semver.satisfies(eslintVersion, ">=7.0.0")
+            ...(semver.satisfies(Linter.version, ">=7.0.0")
                 ? [
                       {
                           code: `/*eslint no-undef:off*/

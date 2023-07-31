@@ -5,8 +5,7 @@
 "use strict"
 
 const semver = require("semver")
-const eslintVersion = require("eslint/package").version
-const RuleTester = require("eslint").RuleTester
+const { Linter, RuleTester } = require("eslint")
 const rule = require("../../../lib/rules/disable-enable-pair")
 const tester = new RuleTester()
 
@@ -81,7 +80,7 @@ var foo = 1
             options: [{ allowWholeFile: true }],
         },
         // -- description
-        ...(semver.satisfies(eslintVersion, ">=7.0.0")
+        ...(semver.satisfies(Linter.version, ">=7.0.0")
             ? [
                   `
 /*eslint-disable no-undef -- description*/
@@ -211,7 +210,7 @@ console.log();
             ],
         },
         // -- description
-        ...(semver.satisfies(eslintVersion, ">=7.0.0")
+        ...(semver.satisfies(Linter.version, ">=7.0.0")
             ? [
                   {
                       code: `

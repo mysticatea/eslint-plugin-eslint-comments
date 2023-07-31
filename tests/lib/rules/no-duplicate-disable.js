@@ -5,8 +5,7 @@
 "use strict"
 
 const semver = require("semver")
-const eslintVersion = require("eslint/package").version
-const RuleTester = require("eslint").RuleTester
+const { Linter, RuleTester } = require("eslint")
 const rule = require("../../../lib/rules/no-duplicate-disable")
 const tester = new RuleTester()
 
@@ -123,7 +122,7 @@ tester.run("no-duplicate-disable", rule, {
             ],
         },
         // -- description
-        ...(semver.satisfies(eslintVersion, ">=7.0.0")
+        ...(semver.satisfies(Linter.version, ">=7.0.0")
             ? [
                   {
                       code: `

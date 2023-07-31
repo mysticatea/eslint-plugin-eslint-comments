@@ -21,5 +21,7 @@ for (const dirPath of [
     path.resolve(__dirname, "../lib/rules"),
     path.resolve(__dirname, "../lib/utils"),
 ]) {
-    fs.writeFileSync(`${dirPath}.js`, createIndex(dirPath))
+    createIndex(dirPath).then(content =>
+        fs.writeFileSync(`${dirPath}.js`, content)
+    )
 }

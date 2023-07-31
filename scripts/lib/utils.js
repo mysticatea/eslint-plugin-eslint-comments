@@ -6,23 +6,22 @@
 
 const fs = require("fs")
 const path = require("path")
-const { CLIEngine } = require("eslint")
-const linter = new CLIEngine({ fix: true })
+const { ESLint } = require("eslint")
+const linter = new ESLint({ fix: true })
 
 /**
  * Format a given text.
  * @param {string} text The text to format.
- * @returns {string} The formatted text.
+ * @returns {Promise<string>} The formatted text.
  */
 function format(text) {
-    const lintResult = linter.executeOnText(text)
-    return lintResult.results[0].output || text
+    return linter.lintText(text).then(([{ output }]) => output || text)
 }
 
 /**
  * Create the index file content of a given directory.
  * @param {string} dirPath The path to the directory to create index.
- * @returns {string} The index file content.
+ * @returns {Promise<string>} The index file content.
  */
 function createIndex(dirPath) {
     const dirName = path.basename(dirPath)
