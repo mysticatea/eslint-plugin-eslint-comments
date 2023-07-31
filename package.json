@@ -13,26 +13,27 @@
     "eslint": "^6.0.0 || ^7.0.0"
   },
   "dependencies": {
-    "escape-string-regexp": "^1.0.5",
+    "escape-string-regexp": "^4.0.0",
     "ignore": "^5.2.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.22.9",
+    "@babel/eslint-parser": "^7.22.9",
     "@eslint-community/eslint-plugin-mysticatea": "^15.5.1",
-    "@types/node": "^14.18.36",
-    "@vuepress/plugin-pwa": "^1.9.8",
-    "babel-eslint": "^10.0.1",
-    "cross-spawn": "^6.0.5",
+    "@types/node": "^14.18.54",
+    "@vuepress/plugin-pwa": "^1.9.9",
+    "cross-spawn": "^7.0.3",
     "eslint": "^7.32.0",
     "eslint4b": "^7.32.0",
-    "fs-extra": "^8.1.0",
-    "mocha": "^6.2.3",
-    "nyc": "^14.1.1",
+    "fs-extra": "^10.1.0",
+    "mocha": "^9.2.2",
+    "nyc": "^15.1.0",
     "opener": "^1.5.2",
-    "rimraf": "^2.7.1",
-    "semver": "^7.3.8",
-    "string-replace-loader": "^2.3.0",
+    "rimraf": "^3.0.2",
+    "semver": "^7.5.4",
+    "string-replace-loader": "^3.1.0",
     "vue-eslint-editor": "^1.1.0",
-    "vuepress": "^1.9.8"
+    "vuepress": "^1.9.9"
   },
   "scripts": {
     "preversion": "npm test",
