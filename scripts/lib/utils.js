@@ -31,8 +31,8 @@ function createIndex(dirPath) {
     module.exports = {
         ${fs
             .readdirSync(dirPath)
-            .map(file => path.basename(file, ".js"))
-            .map(id => `"${id}": require("./${dirName}/${id}"),`)
+            .map((file) => path.basename(file, ".js"))
+            .map((id) => `"${id}": require("./${dirName}/${id}"),`)
             .join("\n    ")}
     }
     `)

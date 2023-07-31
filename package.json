@@ -17,7 +17,7 @@
     "ignore": "^5.2.4"
   },
   "devDependencies": {
-    "@mysticatea/eslint-plugin": "^13.0.0",
+    "@eslint-community/eslint-plugin-mysticatea": "^15.5.1",
     "@types/node": "^14.18.36",
     "@vuepress/plugin-pwa": "^1.9.8",
     "babel-eslint": "^10.0.1",

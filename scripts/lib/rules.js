@@ -12,8 +12,8 @@ const path = require("path")
  */
 const rules = fs
     .readdirSync(path.resolve(__dirname, "../../lib/rules"))
-    .map(fileName => path.basename(fileName, ".js"))
-    .map(name => {
+    .map((fileName) => path.basename(fileName, ".js"))
+    .map((name) => {
         const meta = require(`../../lib/rules/${name}`).meta
         return {
             id: `@eslint-community/eslint-comments/${name}`,
@@ -29,10 +29,10 @@ const rules = fs
 
 module.exports = rules
 module.exports.withCategories = ["Best Practices", "Stylistic Issues"].map(
-    category => ({
+    (category) => ({
         category,
         rules: rules.filter(
-            rule => rule.category === category && !rule.deprecated
+            (rule) => rule.category === category && !rule.deprecated
         ),
     })
 )

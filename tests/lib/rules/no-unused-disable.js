@@ -52,7 +52,7 @@ function runESLint(code, reportUnusedDisableDirectives = false) {
         const chunks = []
         let totalLength = 0
 
-        cp.stdout.on("data", chunk => {
+        cp.stdout.on("data", (chunk) => {
             chunks.push(chunk)
             totalLength += chunk.length
         })
@@ -80,15 +80,9 @@ describe("no-unused-disable", () => {
             "../../../node_modules/@eslint-community/eslint-plugin-eslint-comments"
         )
 
+        fs.mkdirSync(path.dirname(pluginPath), { recursive: true })
         if (fs.existsSync(pluginPath)) {
             rimraf.sync(pluginPath)
-        } else {
-            fs.mkdirSync(
-                path.resolve(
-                    __dirname,
-                    "../../../node_modules/@eslint-community"
-                )
-            )
         }
 
         fs.symlinkSync(selfPath, pluginPath, "junction")
@@ -177,7 +171,7 @@ var a = b //eslint-disable-line -- description`,
                 : []),
         ]) {
             it(code, () =>
-                runESLint(code).then(messages => {
+                runESLint(code).then((messages) => {
                     assert.strictEqual(messages.length, 0)
                 })
             )
@@ -718,8 +712,7 @@ var a = b
                 ],
             },
             {
-                code:
-                    "/* eslint new-parens:error*/ /*eslint-disable new-parens*/",
+                code: "/* eslint new-parens:error*/ /*eslint-disable new-parens*/",
                 errors: [
                     {
                         message:
@@ -856,8 +849,7 @@ var a = b //eslint-disable-line -- description`,
 
             // Don't crash even if the source code has a parse error.
             {
-                code:
-                    "/*eslint no-undef:error*/\nvar a = b c //eslint-disable-line no-undef",
+                code: "/*eslint no-undef:error*/\nvar a = b c //eslint-disable-line no-undef",
                 errors: [
                     {
                         message: "Parsing error: Unexpected token c",
@@ -867,7 +859,7 @@ var a = b //eslint-disable-line -- description`,
         ]) {
             it(code, () =>
                 runESLint(code, reportUnusedDisableDirectives).then(
-                    actualMessages => {
+                    (actualMessages) => {
                         assert.strictEqual(actualMessages.length, errors.length)
                         for (let i = 0; i < errors.length; ++i) {
                             const actual = actualMessages[i]

@@ -19,8 +19,8 @@ module.exports = {
     plugins: ["@eslint-community/eslint-comments"],
     rules: {
         ${rules
-            .filter(rule => rule.recommended)
-            .map(rule => `"${rule.id}": "error",`)
+            .filter((rule) => rule.recommended)
+            .map((rule) => `"${rule.id}": "error",`)
             .join("\n        ")}
     },
 }

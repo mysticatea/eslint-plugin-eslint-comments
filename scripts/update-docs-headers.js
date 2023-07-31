@@ -19,7 +19,7 @@ for (const rule of rules) {
     if (rule.deprecated) {
         headerLines.push(
             `- ⚠️ This rule was **deprecated** and replaced by ${rule.replacedBy
-                .map(id => `[${id}](${id}.md) rule`)
+                .map((id) => `[${id}](${id}.md) rule`)
                 .join(", ")}.`
         )
     } else if (rule.recommended) {

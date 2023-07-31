@@ -137,8 +137,7 @@ tester.run("no-restricted-disable", rule, {
         },
 
         {
-            code:
-                "/*eslint-disable semi, no-extra-semi, semi-style, comma-style*/",
+            code: "/*eslint-disable semi, no-extra-semi, semi-style, comma-style*/",
             options: ["*semi*"],
             errors: [
                 "Disabling 'semi' is not allowed.",
@@ -147,8 +146,7 @@ tester.run("no-restricted-disable", rule, {
             ],
         },
         {
-            code:
-                "/*eslint-disable no-undef, no-redeclare, foo/no-undef, foo/no-redeclare*/",
+            code: "/*eslint-disable no-undef, no-redeclare, foo/no-undef, foo/no-redeclare*/",
             options: ["foo/*"],
             errors: [
                 "Disabling 'foo/no-undef' is not allowed.",
