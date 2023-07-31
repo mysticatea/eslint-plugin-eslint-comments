@@ -15,7 +15,7 @@ const { withCategories } = require("./lib/rules")
  */
 function toTableRow(rule) {
     const mark = `${rule.recommended ? "🌟" : ""}${rule.fixable ? "✒️" : ""}`
-    const link = `[eslint-comments/<wbr>${rule.name}](./${rule.name}.md)`
+    const link = `[@eslint-community/eslint-comments/<wbr>${rule.name}](./${rule.name}.md)`
     const description = rule.description || "(no description)"
     return `| ${link} | ${description} | ${mark} |`
 }
@@ -38,7 +38,7 @@ fs.writeFileSync(
     path.resolve(__dirname, "../docs/rules/README.md"),
     `# Available Rules
 
-- 🌟 mark: the rule which is enabled by \`eslint-comments/recommended\` preset.
+- 🌟 mark: the rule which is enabled by \`@eslint-community/eslint-comments/recommended\` preset.
 - ✒️ mark: the rule which is fixable by \`eslint --fix\` command.
 
 ${withCategories.map(toCategorySection).join("\n")}

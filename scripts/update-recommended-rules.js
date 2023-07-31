@@ -10,9 +10,7 @@ const rules = require("./lib/rules")
 const { format } = require("./lib/utils")
 
 // recommended.js
-fs.writeFileSync(
-    path.resolve(__dirname, "../lib/configs/recommended.js"),
-    format(`/** DON'T EDIT THIS FILE; was created by scripts. */
+format(`/** DON'T EDIT THIS FILE; was created by scripts. */
 "use strict"
 
 module.exports = {
@@ -24,5 +22,9 @@ module.exports = {
             .join("\n        ")}
     },
 }
-`)
+`).then((content) =>
+    fs.writeFileSync(
+        path.resolve(__dirname, "../lib/configs/recommended.js"),
+        content
+    )
 )
