@@ -24,16 +24,16 @@
     "@vuepress/plugin-pwa": "^1.9.9",
     "cross-spawn": "^7.0.3",
     "eslint": "^8.46.0",
-    "eslint4b": "^7.32.0",
     "fs-extra": "^10.1.0",
     "mocha": "^9.2.2",
     "nyc": "^15.1.0",
     "opener": "^1.5.2",
     "rimraf": "^3.0.2",
     "semver": "^7.5.4",
-    "string-replace-loader": "^3.1.0",
+    "string-replace-loader": "^2.3.0",
     "vue-eslint-editor": "^1.1.0",
-    "vuepress": "^1.9.9"
+    "vuepress": "^1.9.9",
+    "webpack": "^4.47.0"
   },
   "scripts": {
     "preversion": "npm test",
