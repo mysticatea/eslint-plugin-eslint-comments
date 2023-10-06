@@ -27,7 +27,7 @@
     "eslint": "^8.46.0",
     "fs-extra": "^10.1.0",
     "mocha": "^9.2.2",
-    "monaco-editor": "^0.43.0",
+    "monaco-editor": "^0.44.0",
     "nyc": "^15.1.0",
     "opener": "^1.5.2",
     "rimraf": "^3.0.2",
