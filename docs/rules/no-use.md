@@ -9,7 +9,10 @@ This rule disallows a use of directive-comments.
 
 Examples of :-1: **incorrect** code for this rule:
 
-<eslint-playground type="bad" code="/*eslint @eslint-community/eslint-comments/no-use: error */
+<eslint-playground type="bad" >
+
+```js
+/*eslint @eslint-community/eslint-comments/no-use: error */
 
 /* eslint no-undef: off */
 /* eslint-env browser */
@@ -20,7 +23,9 @@ Examples of :-1: **incorrect** code for this rule:
 /* exported foo */
 /* global $ */
 /* globals a, b, c */
-" />
+```
+
+</eslint-playground>
 
 ## Options
 

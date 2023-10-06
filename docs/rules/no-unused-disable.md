@@ -11,29 +11,49 @@ This rule warns unnecessary `eslint-disable` directive-comments.
 
 Examples of :-1: **incorrect** code for this rule:
 
-<eslint-playground type="bad" reportUnusedDisable code="/*eslint @eslint-community/eslint-comments/no-unused-disable: error, eqeqeq: error, no-undef: error */
+<eslint-playground type="bad" reportUnusedDisable >
+
+```js
+/*eslint @eslint-community/eslint-comments/no-unused-disable: error, eqeqeq: error, no-undef: error */
 
 var foo = bar() //eslint-disable-line no-undef,eqeqeq
-" />
+```
 
-<eslint-playground type="bad" reportUnusedDisable code="/*eslint @eslint-community/eslint-comments/no-unused-disable: error, eqeqeq: error, no-undef: error */
+</eslint-playground>
+
+<eslint-playground type="bad" reportUnusedDisable >
+
+```js
+/*eslint @eslint-community/eslint-comments/no-unused-disable: error, eqeqeq: error, no-undef: error */
 /*globals doSomething */
 
 doSomething() //eslint-disable-line
-" />
+```
+
+</eslint-playground>
 
 Examples of :+1: **correct** code for this rule:
 
-<eslint-playground type="good" reportUnusedDisable code="/*eslint @eslint-community/eslint-comments/no-unused-disable: error, eqeqeq: error, no-undef: error */
+<eslint-playground type="good" reportUnusedDisable >
+
+```js
+/*eslint @eslint-community/eslint-comments/no-unused-disable: error, eqeqeq: error, no-undef: error */
 
 var foo = bar() //eslint-disable-line no-undef
-" />
+```
 
-<eslint-playground type="good" reportUnusedDisable code="/*eslint @eslint-community/eslint-comments/no-unused-disable: error, eqeqeq: error, no-undef: error */
+</eslint-playground>
+
+<eslint-playground type="good" reportUnusedDisable >
+
+```js
+/*eslint @eslint-community/eslint-comments/no-unused-disable: error, eqeqeq: error, no-undef: error */
 /*globals doSomething */
 
 doSomething()
-" />
+```
+
+</eslint-playground>
 
 ## Known limitations
 

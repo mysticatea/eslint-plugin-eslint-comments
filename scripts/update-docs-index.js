@@ -35,7 +35,7 @@ ${rules.map(toTableRow).join("\n")}
 }
 
 fs.writeFileSync(
-    path.resolve(__dirname, "../docs/rules/README.md"),
+    path.resolve(__dirname, "../docs/rules/index.md"),
     `# Available Rules
 
 - 🌟 mark: the rule which is enabled by \`@eslint-community/eslint-comments/recommended\` preset.

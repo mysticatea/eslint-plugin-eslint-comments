@@ -35,7 +35,6 @@ jobs:
 
       - name: Build docs
         run: |+
-          export NODE_OPTIONS=--openssl-legacy-provider
           npm run docs:build
 
       - name: Setup Pages
@@ -44,7 +43,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: ./docs/.vuepress/dist
+          path: ./docs/.vitepress/dist/eslint-plugin-eslint-comments
 
       - name: Deploy to GitHub Pages
         id: deployment

@@ -4,7 +4,7 @@
 [![Downloads/month](https://img.shields.io/npm/dm/@eslint-community/eslint-plugin-eslint-comments.svg)](http://www.npmtrends.com/@eslint-community/eslint-plugin-eslint-comments)
 [![Build Status](https://github.com/eslint-community/eslint-plugin-eslint-comments/workflows/CI/badge.svg)](https://github.com/eslint-community/eslint-plugin-eslint-comments/actions)
 [![codecov](https://codecov.io/gh/eslint-community/eslint-plugin-eslint-comments/branch/main/graph/badge.svg)](https://codecov.io/gh/eslint-community/eslint-plugin-eslint-comments)
-[
+
 Additional ESLint rules for ESLint directive comments (e.g. `//eslint-disable-line`).
 
 ## 🏁 Goal

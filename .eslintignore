@@ -1,5 +1,6 @@
-!.vuepress
+!.vitepress
 
 /coverage
-/docs/.vuepress/dist
+/docs/.vitepress/dist
+/docs/.vitepress/cache
 /node_modules

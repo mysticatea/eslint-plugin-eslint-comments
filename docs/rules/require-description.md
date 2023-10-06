@@ -12,7 +12,10 @@ This rule can only be used with ESLint v7.x or later.
 
 Examples of :-1: **incorrect** code for this rule:
 
-<eslint-playground type="bad" code="/*eslint @eslint-community/eslint-comments/require-description: error */
+<eslint-playground type="bad" >
+
+```js
+/*eslint @eslint-community/eslint-comments/require-description: error */
 
 /* eslint no-undef: off */
 /* eslint-env browser */
@@ -23,17 +26,24 @@ Examples of :-1: **incorrect** code for this rule:
 /* exported foo */
 /* global $ */
 /* globals a, b, c */
-" />
+```
+
+</eslint-playground>
 
 Examples of :+1: **correct** code for this rule:
 
-<eslint-playground type="good" code="/*eslint @eslint-community/eslint-comments/require-description: error -- If you use directive comments, you should explain why you use them. */
+<eslint-playground type="good" >
+
+```js
+/*eslint @eslint-community/eslint-comments/require-description: error -- If you use directive comments, you should explain why you use them. */
 
 /* eslint no-undef: off -- Here's a description about why this directive-comment is necessary. */
 /* eslint-env browser -- This script works in browser. */
 // eslint-disable-next-line -- Temporarily avoids the lint error problem. See issue XXX.
 /* global $ -- This script using jQuery. */
-" />
+```
+
+</eslint-playground>
 
 ## Options
 

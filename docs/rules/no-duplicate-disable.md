@@ -13,23 +13,38 @@ This rule warns duplicate `eslint-disable` directive-comments.
 
 Examples of :-1: **incorrect** code for this rule:
 
-<eslint-playground type="bad" code="/*eslint @eslint-community/eslint-comments/no-duplicate-disable: error */
+<eslint-playground type="bad" >
+
+```js
+/*eslint @eslint-community/eslint-comments/no-duplicate-disable: error */
 
 /*eslint-disable no-undef */
 
 var foo = bar() //eslint-disable-line no-undef
-" />
+```
+
+</eslint-playground>
 
 Examples of :+1: **correct** code for this rule:
 
-<eslint-playground type="good" code="/*eslint @eslint-community/eslint-comments/no-duplicate-disable: error */
+<eslint-playground type="good" >
+
+```js
+/*eslint @eslint-community/eslint-comments/no-duplicate-disable: error */
 
 /*eslint-disable no-undef */
 
 var foo = bar()
-" />
+```
 
-<eslint-playground type="good" code="/*eslint @eslint-community/eslint-comments/no-duplicate-disable: error */
+</eslint-playground>
+
+<eslint-playground type="good" >
+
+```js
+/*eslint @eslint-community/eslint-comments/no-duplicate-disable: error */
 
 var foo = bar() //eslint-disable-line no-undef
-" />
+```
+
+</eslint-playground>

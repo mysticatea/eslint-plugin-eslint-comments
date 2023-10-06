@@ -8,28 +8,48 @@ This rule warns `eslint-disable` directive-comments if the comment disable speci
 
 :-1: Examples of **incorrect** code for this rule:
 
-<eslint-playground type="bad" code="/*eslint @eslint-community/eslint-comments/no-restricted-disable: [error, no-undef, no-unused-vars]*/
+<eslint-playground type="bad" >
+
+```js
+/*eslint @eslint-community/eslint-comments/no-restricted-disable: [error, no-undef, no-unused-vars]*/
 
 /*eslint-disable no-undef */
 f()
-" />
+```
 
-<eslint-playground type="bad" code="/*eslint @eslint-community/eslint-comments/no-restricted-disable: [error, no-undef, no-unused-vars]*/
+</eslint-playground>
+
+<eslint-playground type="bad" >
+
+```js
+/*eslint @eslint-community/eslint-comments/no-restricted-disable: [error, no-undef, no-unused-vars]*/
 
 f() //eslint-disable-line no-undef
-" />
+```
 
-<eslint-playground type="bad" code="/*eslint @eslint-community/eslint-comments/no-restricted-disable: [error, no-undef, no-unused-vars]*/
+</eslint-playground>
+
+<eslint-playground type="bad" >
+
+```js
+/*eslint @eslint-community/eslint-comments/no-restricted-disable: [error, no-undef, no-unused-vars]*/
 
 f() //eslint-disable-line
-" />
+```
+
+</eslint-playground>
 
 :+1: Examples of **correct** code for this rule:
 
-<eslint-playground type="good" code="/*eslint @eslint-community/eslint-comments/no-restricted-disable: [error, no-undef, no-unused-vars]*/
+<eslint-playground type="good" >
+
+```js
+/*eslint @eslint-community/eslint-comments/no-restricted-disable: [error, no-undef, no-unused-vars]*/
 
 f() //eslint-disable-line another-rule
-" />
+```
+
+</eslint-playground>
 
 ## Options
 

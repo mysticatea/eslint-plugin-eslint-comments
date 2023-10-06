@@ -21,27 +21,40 @@ This rule warns `eslint-enable` directive-comments which enable rules for multip
 
 :-1: Examples of **incorrect** code for this rule:
 
-<eslint-playground type="bad" code="/*eslint @eslint-community/eslint-comments/no-aggregating-enable: error*/
+<eslint-playground type="bad" >
+
+```js
+/*eslint @eslint-community/eslint-comments/no-aggregating-enable: error*/
 
 /*eslint-disable no-undef */
 f()
 /*eslint-disable no-var */
 var a
 /*eslint-enable */
-" />
+```
 
-<eslint-playground type="bad" code="/*eslint @eslint-community/eslint-comments/no-aggregating-enable: error*/
+</eslint-playground>
+
+<eslint-playground type="bad" >
+
+```js
+/*eslint @eslint-community/eslint-comments/no-aggregating-enable: error*/
 
 /*eslint-disable no-undef */
 f()
 /*eslint-disable no-var */
 var a
 /*eslint-enable no-undef, no-var */
-" />
+```
+
+</eslint-playground>
 
 :+1: Examples of **correct** code for this rule:
 
-<eslint-playground type="good" code="/*eslint @eslint-community/eslint-comments/no-aggregating-enable: error*/
+<eslint-playground type="good" >
+
+```js
+/*eslint @eslint-community/eslint-comments/no-aggregating-enable: error*/
 
 /*eslint-disable no-undef */
 f()
@@ -50,4 +63,6 @@ var a
 /*eslint-enable no-var */
 
 /*eslint-enable no-undef */
-" />
+```
+
+</eslint-playground>
